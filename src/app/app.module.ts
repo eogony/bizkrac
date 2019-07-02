@@ -12,6 +12,7 @@ import { SignInFormComponent } from './sign-in-form/sign-in-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DataService } from './data.service';
 import { UsernameValidators } from './sign-in-form/username.validators';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UsernameValidators } from './sign-in-form/username.validators';
     NavComponent,
     AdminComponent,
     SignInFormComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
