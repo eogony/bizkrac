@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { FindconsultantComponent } from './findconsultant/findconsultant.component';
 import { RegisterconsultantComponent } from './registerconsultant/registerconsultant.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
     LoginComponent,
     FindconsultantComponent,
     RegisterconsultantComponent,
-    AdminUsersComponent
+    AdminUsersComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
