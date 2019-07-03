@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
+import { AboutComponent } from './about/about.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'news', component: NewsComponent },
   { path: 'admin/admin-users', component: AdminUsersComponent }

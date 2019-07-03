@@ -19,6 +19,7 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { RegisterComponent } from './register/register.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NewsComponent } from './news/news.component';
     AdminUsersComponent,
     RegisterComponent,
     JobsComponent,
-    NewsComponent
+    NewsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
