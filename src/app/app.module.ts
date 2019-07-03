@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
@@ -19,7 +19,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { DataService } from './data.service';
 import { UsernameValidators } from './sign-in-form/username.validators';
 import { LoginComponent } from './login/login.component';
-import { FindconsultantComponent } from './findconsultant/findconsultant.component';
+import { FindconsultantComponent } from './findconsultant/findconsultant.component'a
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { RegisterComponent } from './register/register.component';
 import { JobsComponent } from './jobs/jobs.component';
@@ -46,7 +46,7 @@ import { AboutComponent } from './about/about.component';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
+    AngularFireAuth,
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
