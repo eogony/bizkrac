@@ -19,7 +19,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { DataService } from './data.service';
 import { UsernameValidators } from './sign-in-form/username.validators';
 import { LoginComponent } from './login/login.component';
-import { FindconsultantComponent } from './findconsultant/findconsultant.component'a
+import { FindconsultantComponent } from './findconsultant/findconsultant.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { RegisterComponent } from './register/register.component';
 import { JobsComponent } from './jobs/jobs.component';
