@@ -12,8 +12,10 @@ import { SignInFormComponent } from './sign-in-form/sign-in-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DataService } from './data.service';
 import { UsernameValidators } from './sign-in-form/username.validators';
-import { LogoutComponent } from './logout/logout.component';
 import { LoginComponent } from './login/login.component';
+import { FindconsultantComponent } from './findconsultant/findconsultant.component';
+import { RegisterconsultantComponent } from './registerconsultant/registerconsultant.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,10 @@ import { LoginComponent } from './login/login.component';
     AdminComponent,
     SignInFormComponent,
     ChangePasswordComponent,
-    LogoutComponent,
-    LoginComponent
+    LoginComponent,
+    FindconsultantComponent,
+    RegisterconsultantComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,
