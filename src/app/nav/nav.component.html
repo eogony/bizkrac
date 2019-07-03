@@ -11,7 +11,7 @@
     </div>
 </header>-->
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-    <!--<a class="navbar-brand" href="#">Navbar</a>-->
+    <!--<a class="navbar-brand" href="#">Bizkrac</a>-->
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Biz<span class="sr-only">(current)</span>krac</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,16 +29,16 @@
           <a class="nav-link" routerLink="/jobs">Jobs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/news-events">News & Events</a>
+          <a class="nav-link" routerLink="/news">News & Events</a>
         </li>
         <li class="nav-item">
           <!--<a class="nav-link disabled" routerLink="#">Disabled</a>-->
-          <a class="nav-link" routerLink="contact">Contact Us</a>
+          <a class="nav-link" routerLink="/contact">Contact Us</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" routerLink="/admin" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" routerLink="/admin/admin-users">Users</a>
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/admin/admin-users">Manage Users</a>
             <a class="dropdown-item" routerLink="#">Another action</a>
             <a class="dropdown-item" routerLink="#">Something else here</a>
           </div>
