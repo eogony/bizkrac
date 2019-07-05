@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as firebase from '@firebase/app';
+// import * as firebase from '@firebase/app';
 import { auth } from 'firebase/app';
 
 @Component({
@@ -11,9 +11,9 @@ import { auth } from 'firebase/app';
 })
 export class LoginComponent {
 
-  constructor(private afAuth: AngularFireAuth) { }
+   constructor(public afAuth: AngularFireAuth) { }
 
- login() {
-  this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
- }
+login() { this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()); }
+
+ logout() { this.afAuth.auth.signOut(); }
 }
