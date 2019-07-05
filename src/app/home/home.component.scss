@@ -57,18 +57,20 @@ a {
 
 #search {
     margin-top: 20px;
+    border: seashell;
+    font-family: 'Montserrat';
     
 }
  .glyphicon-search {
     font-size: 20px;
  }
 
-.btn-default-search{
+.btn-default{
     background: orange;
     width: 100px;
-    padding: 12.5px;
+    padding: 25px;
 }
-.form-control-search{
+.form-control {
     padding: 25px;
     font-size: 25px;
 }
