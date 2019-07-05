@@ -11,15 +11,20 @@
         
     }
 }*/
-.navbar {
-    background: #7700FF;}
+.bg-light {
+    /*background: #7700FF !important; */
+    background-image: linear-gradient(to right,rgb(177, 130, 130),white);
+    margin-bottom: 0;
+    background-color: #ffffff;
+    border-color: #ffffff
+}
 
 .dropdown-toggle {
     cursor: pointer;
 }
 .navbar-brand {
-    font-weight: bold;
-    padding: 1.5em;
+    /*font-weight: bold;*/
+    padding: 1em;
     text-transform: uppercase;
     font-size: .9em;
 }
@@ -31,7 +36,7 @@ ul {
         float: left;
 
         a {
-            padding: 1.5em;
+            padding: 1em;
             text-transform: uppercase;
             font-size: .9em;
 
