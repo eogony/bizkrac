@@ -7,7 +7,7 @@
     text-align: center;
 }*/
 #slider_area {
-    background-image: url(/src/image/ricardo-gomez.jpg);
+    background-image: url(../image/ricardo-gomez.jpg);
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
@@ -58,29 +58,25 @@ a {
 }
 }
 
-
 #search {
     margin-top: 20px;
-    margin-left: 0;
     border: grey;
     font-family: 'Montserrat';
-    font-size: 18px; 
+    font-size: 18px;   
 
-    .container {
-        width: 100%;
-        
-    }  
+    .form-control {
+        padding: 0px;
+        font-size: 18px;
+        border-color: aquamarine;
+        // height: 34px !important; 
+    }
 }
 
 /* .btn-outline-secondary {
     background: whitesmoke;
  } */
 
-/*.form-control {
-    padding: 0px;
-    font-size: 18px;
-    // height: 
-}*/
+
 #services {
     padding: 100px;
 }
