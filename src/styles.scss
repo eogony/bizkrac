@@ -4,9 +4,19 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 
-body {
-    padding-top: 80px;
-    font-family: 'Montserrat';
-    font-size: 18px; 
-    // margin: 0 auto;        
-}
+    body, html{
+        height: 100%;
+        // margin: 0;
+    }
+    
+    body {
+        font-family: 'Montserrat';
+        font-size: 18px; 
+        padding-top: 80px; 
+    }    
+
+    section {
+        width: 100%;
+        margin: 0 auto;
+        // padding: 2em;
+    }
