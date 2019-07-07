@@ -7,7 +7,7 @@
     text-align: center;
 }*/
 #slider_area {
-    // background-image: url(../images/1.jpg);
+    background-image: url(/src/image/ricardo-gomez.jpg);
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
@@ -32,6 +32,7 @@
 
 h2 {
     color: #ffffff;
+    font-family: 'Montserrat';
     font-size: 40px;
     text-transform: uppercase;
     margin-bottom: 30px;
@@ -44,8 +45,10 @@ h2 {
 p {
     color: #ffffff;
     font-size: 18px;
-    font-style: italic;
+    font-family: 'Montserrat';
+    // font-style: italic;
     margin-bottom: 30px;
+    
 }
 a {
     font-style: normal;
@@ -55,22 +58,41 @@ a {
 }
 }
 
+
 #search {
     margin-top: 20px;
-    border: seashell;
+    margin-left: 0;
+    border: grey;
     font-family: 'Montserrat';
-    
-}
- .glyphicon-search {
-    font-size: 20px;
- }
+    font-size: 18px; 
 
-.btn-default{
-    background: orange;
-    width: 100px;
-    padding: 25px;
+    .container {
+        width: 100%;
+        
+    }  
 }
-.form-control {
-    padding: 25px;
-    font-size: 25px;
+
+/* .btn-outline-secondary {
+    background: whitesmoke;
+ } */
+
+/*.form-control {
+    padding: 0px;
+    font-size: 18px;
+    // height: 
+}*/
+#services {
+    padding: 100px;
+}
+.single-services {
+    span {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background-color: $basecolor;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+
+    }
 }
