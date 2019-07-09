@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from 'firebase';
+import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -6,13 +10,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
+  constructor(public auth: AuthService) {  }
 
-  appTitle = 'Welcome to Bizkrac!';
-
-  constructor() { }
-
-  ngOnInit() {
+  logout() {
+    this.auth.logout();
   }
 
 }

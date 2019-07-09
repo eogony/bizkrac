@@ -28,6 +28,7 @@ import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
 import { CategoryService } from './services/category.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { CategoryService } from './services/category.service';
   providers: [
     DataService,
     UsernameValidators,
-    CategoryService
+    CategoryService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
