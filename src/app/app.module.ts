@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-// import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuthModule  } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
@@ -50,7 +50,7 @@ import { CategoryService } from './services/category.service';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    // AngularFireAuth,
+    AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
