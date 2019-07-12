@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -7,7 +8,6 @@ import { AngularFireAuthModule  } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +29,7 @@ import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
 import { CategoryService } from './services/category.service';
 import { AuthService } from './services/auth.service';
+import { FormValidators } from './common/form.validators';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AuthService } from './services/auth.service';
   providers: [
     DataService,
     UsernameValidators,
+    FormValidators,
     CategoryService,
     AuthService
   ],

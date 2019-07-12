@@ -1,7 +1,6 @@
 
-import { AbstractControl, ValidationErrors, NumberValueAccessor } from '@angular/forms';
-import { promise } from 'protractor';
-import { resolve, reject } from 'q';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+
 
 export class UsernameValidators {
 
