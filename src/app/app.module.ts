@@ -7,6 +7,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule  } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -18,7 +19,6 @@ import { NavComponent } from './nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignInFormComponent } from './sign-in-form/sign-in-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { DataService } from './data.service';
 import { UsernameValidators } from './sign-in-form/username.validators';
 import { LoginComponent } from './login/login.component';
 import { FindconsultantComponent } from './findconsultant/findconsultant.component';
@@ -30,6 +30,9 @@ import { AboutComponent } from './about/about.component';
 import { CategoryService } from './services/category.service';
 import { AuthService } from './services/auth.service';
 import { FormValidators } from './common/form.validators';
+import { DataService } from './services/data.service';
+import { UniqueUsernameDirective } from './register/unique-username.directive';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { FormValidators } from './common/form.validators';
     RegisterComponent,
     JobsComponent,
     NewsComponent,
-    AboutComponent
+    AboutComponent,
+    UniqueUsernameDirective
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,8 @@ import { FormValidators } from './common/form.validators';
     UsernameValidators,
     FormValidators,
     CategoryService,
-    AuthService
+    AuthService,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

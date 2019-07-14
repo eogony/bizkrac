@@ -36,11 +36,17 @@ export class AuthService {
     }
   }
 
-  /*add logout method*/
+  /*add logout method
   async logout() {
       await this.afAuth.auth.signOut();
       localStorage.removeItem('user');
       this.router.navigate(['/login']);
+  } */
+  async logout() {
+    return this.afAuth.auth.signOut().then(() => {
+      localStorage.removeItem('user');
+      this.router.navigate(['/login']);
+    });
   }
 
   /* add isLoggedIn property to check if the user is logged in */
@@ -49,3 +55,4 @@ export class AuthService {
       return user !== null;
   }
 }
+
