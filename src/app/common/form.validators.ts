@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { DataService } from '../services/data.service';
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -12,6 +15,16 @@ static cannotContainSpace(control: AbstractControl): ValidationErrors | null {
       }
 
       return null;
+    }
+
+    static shouldBeUnique(dataservice: DataService): AsyncValidatorFn {
+      return (c: AbstractControl): Promise<ValidationErrors | null>  |Observable<ValidationErrors | null> => {
+        return dataservice.getUserByUname(c.value).pipe(
+          map(users => {
+            return users && users.length > 0 ? {shouldBeUnique: true} : null;
+          })
+        );
+      };
     }
 
   }

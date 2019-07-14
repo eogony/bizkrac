@@ -1,13 +1,27 @@
-import { Directive } from '@angular/core';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+// import { Directive } from '@angular/core';
+import { AbstractControl, ValidationErrors, AsyncValidator, NG_ASYNC_VALIDATORS, AsyncValidatorFn } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DataService } from '../services/data.service';
 import { map } from 'rxjs/operators';
 
-@Directive({
-  selector: '[appUniqueUsername]'
+export class UniqueUsername {
+  /*  export function uniqueUsernameValidator(dataservice: DataService): AsyncValidatorFn {
+    return (c: AbstractControl): Promise<ValidationErrors | null>  |Observable<ValidationErrors | null> => {
+      return dataservice.getUserByUname(c.value).pipe(
+        map(users => {
+          return users && users.length > 0 ? {uniqueUsername: true} : null;
+        })
+      );
+    };
+  }
+ }
+
+
+/*@Directive({
+  selector: '[appUniqueUsername]',
+  providers: [{provide: NG_ASYNC_VALIDATORS, useExisting: UniqueUsernameDirective, multi: true}]
 })
-export class UniqueUsernameDirective {
+export class UniqueUsernameDirective implements AsyncValidator {
    // debouncer: any;
   // static debouncer: any;
 
@@ -27,12 +41,11 @@ export class UniqueUsernameDirective {
     });
   }*/
 
-  validate(c: AbstractControl): Promise<ValidationErrors | null>  |Observable<ValidationErrors | null> {
+ /* validate(c: AbstractControl): Promise<ValidationErrors | null>  |Observable<ValidationErrors | null> {
     return this.dataservice.getUserByUname(c.value).pipe(
       map(users => {
         return users && users.length > 0 ? {appUniqueUsername: true} : null;
       })
     );
-  }
-
+  }*/
 }

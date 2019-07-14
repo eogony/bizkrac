@@ -17,9 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
-import { SignInFormComponent } from './sign-in-form/sign-in-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { UsernameValidators } from './sign-in-form/username.validators';
 import { LoginComponent } from './login/login.component';
 import { FindconsultantComponent } from './findconsultant/findconsultant.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
@@ -31,7 +29,7 @@ import { CategoryService } from './services/category.service';
 import { AuthService } from './services/auth.service';
 import { FormValidators } from './common/form.validators';
 import { DataService } from './services/data.service';
-import { UniqueUsernameDirective } from './register/unique-username.directive';
+// import { UniqueUsernameDirective } from './register/unique-username.directive';
 
 
 @NgModule({
@@ -41,7 +39,6 @@ import { UniqueUsernameDirective } from './register/unique-username.directive';
     ContactComponent,
     NavComponent,
     AdminComponent,
-    SignInFormComponent,
     ChangePasswordComponent,
     LoginComponent,
     FindconsultantComponent,
@@ -50,7 +47,7 @@ import { UniqueUsernameDirective } from './register/unique-username.directive';
     JobsComponent,
     NewsComponent,
     AboutComponent,
-    UniqueUsernameDirective
+    // UniqueUsernameDirective
   ],
   imports: [
     BrowserModule,
@@ -61,15 +58,14 @@ import { UniqueUsernameDirective } from './register/unique-username.directive';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [
     DataService,
-    UsernameValidators,
     FormValidators,
     CategoryService,
-    AuthService,
-    HttpClientModule
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

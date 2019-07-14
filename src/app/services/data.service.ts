@@ -31,7 +31,7 @@ export class DataService {
     }*/
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -41,8 +41,23 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getUserByUsername(username: string) {
-      return this.http.get<any[]>(`$(this.url)?username=${username}`);
+  getUsers() {
+      return this.http.get<any[]>(this.url).pipe(
+          map(users => {
+              const newUsers = [];
+              for (const user of users) {
+                  const email = user.email;
+                  const uName = user.username;
+                  newUsers.push({ email, username: uName });
+              }
+              return newUsers;
+          }),
+          tap(users => console.log(users))
+      );
+  }
+
+  getUserByEmail(email: string) {
+      return this.http.get<any[]>(`$(this.url)?email=${email}`);
   }
 
   validateUsername(username) {
