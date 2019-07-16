@@ -17,11 +17,11 @@ export class RegisterComponent {
   constructor(private formBuilder: FormBuilder, private dataservice: DataService) {
     this.messageForm = this.formBuilder.group({
       name: ['', Validators.required],
-      username: ['', Validators.required,
+      username: ['', [Validators.required,
               Validators.minLength(4),
               FormValidators.cannotContainSpace,
               // UniqueUsername.uniqueUsernameValidator(this.dataservice)
-              FormValidators.shouldBeUnique
+              FormValidators.shouldBeUnique]
             ],
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -29,6 +29,9 @@ export class RegisterComponent {
      });
   }
   // define a property that gives us access to the form control object
+  get name() {
+    return this.messageForm.get('name');
+  }
   get username() {
     return this.messageForm.get('username');
   }
