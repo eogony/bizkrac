@@ -119,9 +119,9 @@
                       <div *ngIf="username.pending">Checking for uniqueness...</div>
                       <div *ngIf="username.invalid && (username.touched || username.dirty)" class="alert alert-danger">
                           <div *ngIf="username.errors.required">Username is required.</div>
-                          <div *ngIf="username.errors.minLength">Username should be minimum {{ username.errors.minLength.requiredLength }} characters.</div>
+                          <div *ngIf="username.errors.minLength">Username should be minimum {{ username.errors.minlength.requiredLength }} characters.</div>
                           <div *ngIf="username.errors.cannotContainSpace">Username cannot contain space.</div>
-                          <div *ngIf="username.errors.shouldBeUnique">Username is already exists.</div>
+                          <div *ngIf="username.errors.existingUser">Username is already existing.</div>
                       </div>
                     </div>
                     <div class="form-group">

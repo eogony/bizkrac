@@ -37,7 +37,7 @@ import { map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
-  private url = 'https://console.firebase.google.com/project/bizkrac/database/bizkrac/data/users';
+  private url = 'https://console.firebase.google.com/project/bizkrac/database/bizkrac/data/username';
 
   constructor(private http: HttpClient) { }
 

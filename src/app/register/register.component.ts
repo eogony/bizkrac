@@ -18,10 +18,10 @@ export class RegisterComponent {
     this.messageForm = this.formBuilder.group({
       name: ['', Validators.required],
       username: ['', [Validators.required,
-              Validators.minLength(4),
+              Validators.minLength(5),
               FormValidators.cannotContainSpace,
               // UniqueUsername.uniqueUsernameValidator(this.dataservice)
-              FormValidators.shouldBeUnique]
+              FormValidators.shouldBeUnique(this.dataservice)]
             ],
       email: ['', Validators.required],
       password: ['', Validators.required],
