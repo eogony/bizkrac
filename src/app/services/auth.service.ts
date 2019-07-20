@@ -9,7 +9,7 @@ import { User } from 'firebase';
     providedIn: 'root'
 })
 export class AuthService {
-    /*add variable to store data*/
+    /*add variable to store logged in user data*/
     user: User;
 
     /*inject the Firebase authentication service and the router via the service's constructor:*/
@@ -32,9 +32,12 @@ export class AuthService {
         await this.afAuth.auth.signInWithEmailAndPassword(email, password);
         this.router.navigate(['/']);
     } catch (e) {
-        alert('Error!' + e.message);
+        window.alert('Error!' + e.message);
     }
   }
+
+  // Sign up with email/password
+
 
   /*add logout method
   async logout() {

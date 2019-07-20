@@ -29,6 +29,8 @@ import { CategoryService } from './services/category.service';
 import { AuthService } from './services/auth.service';
 import { FormValidators } from './common/form.validators';
 import { DataService } from './services/data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 // import { UniqueUsernameDirective } from './register/unique-username.directive';
 
 
@@ -59,7 +61,9 @@ import { DataService } from './services/data.service';
     ReactiveFormsModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     DataService,
