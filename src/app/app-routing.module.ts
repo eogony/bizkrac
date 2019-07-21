@@ -9,6 +9,7 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'news', component: NewsComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
   { path: 'admin/admin-users', component: AdminUsersComponent }
 ];
 

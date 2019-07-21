@@ -1,10 +1,21 @@
-/* card {
-    box-shadow: 0  10px  20px  rgba(0,0,0,0.19), 0  6px  6px  rgba(0,0,0,0.23);
-    
-}
-.card {
-    width: 660px;
-    position: relative;
-    margin: 0 auto;
-}*/
 
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: .75rem;
+  }
+  /*body {
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+  } */ 
+  .card-signin .card-header {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  .card-signin .card-body {
+    padding: 2rem;
+  }
+   .form {
+    width: 100%;
+  }
