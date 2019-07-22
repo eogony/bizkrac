@@ -9,8 +9,10 @@ import { PasswordValidators } from './password.validators';
 })
 export class ChangePasswordComponent {
 form: FormGroup;
+submitted = false;
+success = false;
 
-constructor(fb: FormBuilder) {
+constructor(private fb: FormBuilder) {
   this.form = fb.group({
     oldPassword: ['',
       Validators.required,
@@ -22,7 +24,14 @@ constructor(fb: FormBuilder) {
     validator: PasswordValidators.passwordShouldMatch
   });
 }
+onSubmit() {
+  this.submitted = true;
 
+  if (this.form.invalid) {
+    return;
+  }
+  this.success = true;
+}
 get oldPassword() { return this.form.get('oldPassword'); }
 get newPassword() { return this.form.get('newPassword'); }
 get confirmPassword() { return this.form.get('confirmPassword'); }

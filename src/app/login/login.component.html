@@ -60,8 +60,9 @@
           
                 <!-- Email -->
                 <div class="md-form">
-                  <input type="email" id="materialLoginFormEmail" class="form-control" mdbInput>
-                  <label for="materialLoginFormEmail">E-mail</label>
+                    <input mdbInput type="email" name="text" [(ngModel)]="email" id="materialLoginFormEmail" class="form-control">
+                    <label for="materialLoginFormEmail" class="">E-mail</label>
+                    <p>{{email}}</p>                
                 </div>
           
                 <!-- Password -->
@@ -73,7 +74,6 @@
                 <div class="d-flex justify-content-around">
                   <div>
                     <!-- Remember me -->
-                    <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
                     <mdb-checkbox>Remember me</mdb-checkbox>
                   </div>
                   <div>
@@ -85,7 +85,7 @@
                 <!-- Sign in button -->
                 <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
                   type="submit" (click)="auth.login(userEmail.value, userPassword.value)">
-                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  <!--<span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>-->
                   Sign in</button>
           
                 <!-- Register -->
