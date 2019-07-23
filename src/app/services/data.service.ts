@@ -69,4 +69,11 @@ export class DataService {
             params: new HttpParams().set('username', uName)
         });
     }
+    /*validateUserEmail(email: string) {
+        return this.http
+        .get(this.url)
+        .map(res => res.Json())
+        .map(users => users.filter(user => user.email === email))
+        .map(users => !users.length);
+    }*/
 }
