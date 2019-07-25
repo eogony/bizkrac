@@ -29,8 +29,10 @@ onSubmit() {
 
   if (this.form.invalid) {
     return;
+  } else {
+    this.success = true;
   }
-  this.success = true;
+
 }
 get oldPassword() { return this.form.get('oldPassword'); }
 get newPassword() { return this.form.get('newPassword'); }

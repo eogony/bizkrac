@@ -1,140 +1,55 @@
-<!--<form class="needs-validation" novalidate>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="validationCustom01">First name</label>
-        <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationCustom02">Last name</label>
-        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationCustomUsername">Username</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend">@</span>
-          </div>
-          <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-          <div class="invalid-feedback">
-            Please choose a username.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-md-3 mb-3">
-        <label for="validationCustom03">Country:</label>
-        <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="validationCustom04">City:</label>
-        <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-        <div class="invalid-feedback">
-          Please provide a valid state.
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="validationCustom05">Phone:</label>
-        <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-        <div class="invalid-feedback">
-          Please provide a valid zip.
-        </div>
-      </div>
-      <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Please provide an industry.
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-    </div>
-    <div class="custom-file">
-        <input type="file" class="custom-file-input" id="customFile">
-        <label class="custom-file-label" for="customFile">Choose file</label>
-      </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-        <label class="form-check-label" for="invalidCheck">
-          Agree to terms and conditions
-        </label>
-        <div class="invalid-feedback">
-          You must agree before submitting.
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-primary" type="submit">Submit form</button>
-  </form>
-  
-  <script>
-  // Example starter JavaScript for disabling form submissions if there are invalid fields
-  (function() {
-    'use strict';
-    window.addEventListener('load', function() {
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName('needs-validation');
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
-  </script>-->
-
- <ng-container class="body">
+<ng-container class="body">
   <div class="main">
 
     <section class="signup">
          <!--<img src="images/signup-bg.jpg" alt="">--> 
         <div class="container">
             <div class="signup-content">
-                <form method="POST" id="signup-form" class="signup-form" [formGroup]="messageForm" (ngSubmit)="signUp()">
+                <form autocomplete="off" method="POST" id="signup-form" class="signup-form" [formGroup]="messageForm" (ngSubmit)="signUp()">
                     <h2 class="form-title">Create account</h2>
                     <div class="form-group">
                         <input formControlName="name" type="text" class="form-input" name="name" id="name" placeholder="Your Name"/>
-                        <div *ngIf="name.touched && name.errors)">
-                          <div class="alert alert-danger" *ngIf="name.errors.required">
+                        <div *ngIf="name.touched && name.errors">
+                          <div *ngIf="name.hasError('required')" class="alert alert-danger">
                             The name is required
                           </div>
                         </div>
                     </div>
                     <div class="form-group">
                       <input formControlName="username" type="text" class="form-input" name="username" id="username" placeholder="Your Username"/>
-                      <div *ngIf="username.pending">Checking for uniqueness...</div>
-                      <div *ngIf="username.invalid && (username.touched || username.dirty)" class="alert alert-danger">
-                          <div *ngIf="username.errors.required">Username is required.</div>
-                          <div *ngIf="username.errors.minLength">Username should be minimum {{ username.errors.minlength.requiredLength }} characters.</div>
-                          <div *ngIf="username.errors.cannotContainSpace">Username cannot contain space.</div>
-                          <div *ngIf="username.errors.existingUser">Username is already existing.</div>
+                      <div *ngIf="username.pending">
+                        Hold tight...Checking availability of {{ username.value }}
+                      </div>
+                      <div *ngIf="username.invalid && username.touched">
+                        <div *ngIf="username.hasError('required')" class="alert alert-danger">
+                          The username is required
+                        </div>
+                      </div>
+                      <div *ngIf="username.errors">
+                        <div *ngIf="username.hasError('minlength')" class="alert alert-danger">
+                          The username should be minimum {{ username.errors.minlength.requiredLength }} characters
+                        </div>
+                      </div>
+                      <div *ngIf="username.errors">
+                          <div *ngIf="username.hasError('nospace')" class="alert alert-danger">
+                              The username cannot contain space
+                          </div>
+                      </div>  
+                      <div *ngIf="username.errors">
+                          <div *ngIf="username.errors.existingUser" class="alert alert-danger">
+                            The username is already existing
+                          </div>
                       </div>
                     </div>
                     <div class="form-group">
                         <input formControlName="email" type="email" class="form-input" name="email" id="email" placeholder="Your Email"/>
                         <div *ngIf="email.touched && email.errors">
-                          <div class="alert alert-danger" *ngIf="email.errors.required">
+                          <div *ngIf="email.errors.required" class="alert alert-danger" >
                             The email is required
                           </div>
                         </div>
                         <div *ngIf="email.errors">
-                          <div class="alert alert-danger" *ngIf="email.errors.pattern">
+                          <div *ngIf="email.hasError('email')" class="alert alert-danger">
                             The email is not valid
                           </div>
                         </div>
@@ -142,13 +57,38 @@
                     <div class="form-group">
                         <input formControlName="password" type="text" class="form-input" name="password" id="password" placeholder="Password"/>
                         <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        <div *ngIf="password.invalid && password.touched">
+                          <div *ngIf="password.hasError('required')" class="alert alert-danger">
+                            The password is required
+                          </div>
+                        </div>
+                        <div *ngIf="password.errors">
+                          <div *ngIf="password.hasError('maxlength')" class="alert alert-danger">
+                            The password should be maximum {{ password.errors.maxlength.requiredLength }} characters
+                          </div>
+                        </div>
+                        <div *ngIf="password.errors">
+                          <div *ngIf="password.hasError('pattern')" class="alert alert-danger">
+                            The password should match pattern
+                          </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <input formControlName="re_password" type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
+                        <div *ngIf="re_password.invalid && re_password.touched">
+                          <div *ngIf="re_password.hasError('required') || passwordsDontMatch" class="alert alert-danger">
+                            The repeat password must match
+                          </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="checkbox" name="agree-term" id="agree_term" class="agree-term" />
+                        <input formControlName="agree_term" type="checkbox" name="agree_term" id="agree_term" class="agree_term"/>
                         <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                        <div class="invalidfeedback" *ngIf="submitted && agree_term.errors">
+                          <div *ngIf="agree_term.invalid">
+                            You must first agree to terms of service before proceeding
+                          </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up" [disabled]="!messageForm.valid"/>

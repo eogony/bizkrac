@@ -13,15 +13,22 @@ function isEmptyInputValue(value: any): boolean {
 @Injectable()
 export class FormValidators {
 
+  static passwordsDontMatch(control: AbstractControl) {
+    const newPassword = control.get('password');
+    const retypePassword = control.get('re_password');
 
-static cannotContainSpace(control: AbstractControl): ValidationErrors | null {
-      if ((control.value as string).indexOf('') >= 0) {
-        return { cannotContainSpace: true};
-      }
-
-      return null;
+    if (newPassword.value !== retypePassword.value) {
+        return { passwordsDontMatch: true};
     }
+  }
 
+  static nospaceValidator(control: AbstractControl): { [s: string]: boolean } {
+    const re = / /;
+    if (control.value && control.value.match(re)) {
+      return { nospace: true };
+    }
+    return null;
+  }
    /* static shouldBeUnique(dataservice: DataService): AsyncValidatorFn {
       return (c: AbstractControl): Promise<ValidationErrors | null>  |Observable<ValidationErrors | null> => {
         return dataservice.getUserByUname(c.value).pipe(

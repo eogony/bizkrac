@@ -13,26 +13,33 @@ import { DataService } from '../services/data.service';
 })
 export class RegisterComponent {
   messageForm: FormGroup;
+  submitted = false;
+  isChecked = true;
+  // success = false;
 
   constructor(private formBuilder: FormBuilder, private dataservice: DataService) {
     this.messageForm = this.formBuilder.group({
       name: ['', Validators.required],
-      username: ['', [Validators.required,
-              Validators.minLength(4),
-              FormValidators.cannotContainSpace,
-              // UniqueUsername.uniqueUsernameValidator(this.dataservice)
-              FormValidators.shouldBeUnique(this.dataservice)]
-            ],
-      email: ['', Validators.required,
-            Validators.pattern('a-zA-z0-9_\.]+@[a-zA-Z]+\.[a-zA-Z]+'),
-            ],
-      password: ['', Validators.required,
-              Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$')
-            ],
-      re_password: ['', Validators.required]
-     }, {
-       validator: this.passwordsDontMatch
-      });
+      username: ['', Validators.compose(
+        [Validators.required,
+          Validators.minLength(4),
+          FormValidators.nospaceValidator,
+          FormValidators.shouldBeUnique(this.dataservice)]
+      )],
+      email: ['', Validators.compose(
+        [Validators.required,
+          Validators.email,
+          Validators.pattern('a-zA-z0-9_\.]+@[a-zA-Z]+\.[a-zA-Z]+')]
+          )],
+      password: ['', Validators.compose(
+        [Validators.required,
+          Validators.maxLength(8),
+          Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$')]
+          )],
+      re_password: ['', Validators.required],
+      agree_term: ['', Validators.requiredTrue]
+     }, { validator: FormValidators.passwordsDontMatch }
+     );
   }
   // define a property that gives us access to the control in the form
   get name() { return this.messageForm.get('name'); }
@@ -40,19 +47,16 @@ export class RegisterComponent {
   get email() { return this.messageForm.get('email'); }
   get password() { return this.messageForm.get('password'); }
   get re_password() { return this.messageForm.get('re_password'); }
+  get agree_term() { return this.messageForm.get('agree_term'); }
 
-  passwordsDontMatch(control: AbstractControl) {
-    const newPassword = control.get('password');
-    const retypePassword = control.get('re_password');
-
-    if (newPassword.value !== retypePassword.value) {
-        return { passwordsDontMatch: true};
-    }
-  }
   signUp() {
     // display confirmation message to the user on form submission
-    console.log(this.messageForm.value);
-    alert('The form was submitted');
-    this.messageForm.reset();
-  }
+    if (this.messageForm.invalid) {
+      return;
+    } else {
+      // this.success = true;
+      alert('The form was submitted');
+      this.messageForm.reset();
+      }
+    }
 }
