@@ -49,7 +49,7 @@
                           </div>
                         </div>
                         <div *ngIf="email.errors">
-                          <div *ngIf="email.hasError('email')" class="alert alert-danger">
+                          <div *ngIf="email.hasError('email') || email.hasError('pattern')" class="alert alert-danger">
                             The email is not valid
                           </div>
                         </div>

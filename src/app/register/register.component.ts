@@ -14,7 +14,6 @@ import { DataService } from '../services/data.service';
 export class RegisterComponent {
   messageForm: FormGroup;
   submitted = false;
-  isChecked = true;
   // success = false;
 
   constructor(private formBuilder: FormBuilder, private dataservice: DataService) {
@@ -29,7 +28,7 @@ export class RegisterComponent {
       email: ['', Validators.compose(
         [Validators.required,
           Validators.email,
-          Validators.pattern('a-zA-z0-9_\.]+@[a-zA-Z]+\.[a-zA-Z]+')]
+          Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]
           )],
       password: ['', Validators.compose(
         [Validators.required,

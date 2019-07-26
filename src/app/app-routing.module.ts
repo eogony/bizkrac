@@ -10,6 +10,7 @@ import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'jobs', component: JobsComponent },
   { path: 'news', component: NewsComponent },
   { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'admin/admin-users', component: AdminUsersComponent }
+  { path: 'admin/admin-users', component: AdminUsersComponent },
+  { path: 'change-password/reset-password', component: ResetPasswordComponent }
 ];
 
 @NgModule({

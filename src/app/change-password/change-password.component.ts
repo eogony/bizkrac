@@ -9,7 +9,7 @@ import { PasswordValidators } from './password.validators';
 })
 export class ChangePasswordComponent {
 form: FormGroup;
-submitted = false;
+// submitted = false;
 success = false;
 
 constructor(private fb: FormBuilder) {
@@ -25,7 +25,7 @@ constructor(private fb: FormBuilder) {
   });
 }
 onSubmit() {
-  this.submitted = true;
+  // this.submitted = true;
 
   if (this.form.invalid) {
     return;

@@ -31,6 +31,7 @@ import { FormValidators } from './common/form.validators';
 import { DataService } from './services/data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
 // import { UniqueUsernameDirective } from './register/unique-username.directive';
 
 
@@ -49,6 +50,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     JobsComponent,
     NewsComponent,
     AboutComponent,
+    ResetPasswordComponent,
     // UniqueUsernameDirective
   ],
   imports: [
