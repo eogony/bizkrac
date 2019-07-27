@@ -14,15 +14,6 @@ function isEmptyInputValue(value: any): boolean {
 @Injectable()
 export class FormValidators {
 
-  static passwordsDontMatch(control: AbstractControl) {
-    const newPassword = control.get('password');
-    const retypePassword = control.get('re_password');
-
-    if (newPassword.value !== retypePassword.value) {
-        return { passwordsDontMatch: true};
-    }
-  }
-
   static nospaceValidator(control: AbstractControl): { [s: string]: boolean } {
     const re = / /;
     if (control.value && control.value.match(re)) {

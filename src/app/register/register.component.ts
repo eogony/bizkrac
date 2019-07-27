@@ -19,6 +19,7 @@ export class RegisterComponent {
   constructor(private formBuilder: FormBuilder, private dataservice: DataService) {
     this.messageForm = this.formBuilder.group({
       name: ['', Validators.required],
+      agree_term: ['', Validators.requiredTrue],
       username: ['', Validators.compose(
         [Validators.required,
           Validators.minLength(4),
@@ -32,12 +33,11 @@ export class RegisterComponent {
           )],
       password: ['', Validators.compose(
         [Validators.required,
-          Validators.maxLength(8),
+          Validators.maxLength(20),
           Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$')]
           )],
-      re_password: ['', Validators.required],
-      agree_term: ['', Validators.requiredTrue]
-     }, { validator: FormValidators.passwordsDontMatch }
+      re_password: ['']
+     }, { validator: this.checkPasswords }
      );
   }
   // define a property that gives us access to the control in the form
@@ -47,6 +47,12 @@ export class RegisterComponent {
   get password() { return this.messageForm.get('password'); }
   get re_password() { return this.messageForm.get('re_password'); }
   get agree_term() { return this.messageForm.get('agree_term'); }
+
+  checkPasswords(group: FormGroup) {
+    const pass = group.controls.password.value;
+    const confirmPass = group.controls.re_password.value;
+    return pass === confirmPass ? null : { notSame: true };
+  }
 
   signUp() {
     // display confirmation message to the user on form submission

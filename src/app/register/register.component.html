@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input formControlName="password" type="text" class="form-input" name="password" id="password" placeholder="Password"/>
+                        <input formControlName="password" type="password" class="form-input" name="password" id="password" placeholder="Password"/>
                         <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         <div *ngIf="password.invalid && password.touched">
                           <div *ngIf="password.hasError('required')" class="alert alert-danger">
@@ -75,10 +75,8 @@
                     </div>
                     <div class="form-group">
                         <input formControlName="re_password" type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
-                        <div *ngIf="re_password.invalid && re_password.touched">
-                          <div *ngIf="re_password.hasError('required') || passwordsDontMatch" class="alert alert-danger">
-                            The repeat password must match
-                          </div>
+                        <div *ngIf="messageForm.hasError('notSame')" class="alert alert-danger">
+                           Passwords do not match.
                         </div>
                     </div>
                     <div class="form-group">
