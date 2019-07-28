@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
 import { AdminComponent } from './admin/admin.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { LoginComponent } from './login/login.component';
@@ -40,6 +41,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     HomeComponent,
     ContactComponent,
     NavComponent,
+    FooterComponent,
     AdminComponent,
     ChangePasswordComponent,
     LoginComponent,
