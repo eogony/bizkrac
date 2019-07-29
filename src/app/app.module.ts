@@ -8,6 +8,7 @@ import { AngularFireAuthModule  } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -32,6 +33,7 @@ import { DataService } from './services/data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
+import { MyMaterialModule } from './material';
 // import { UniqueUsernameDirective } from './register/unique-username.directive';
 
 
@@ -50,7 +52,7 @@ import { ResetPasswordComponent } from './change-password/reset-password/reset-p
     JobsComponent,
     NewsComponent,
     AboutComponent,
-    ResetPasswordComponent,
+    ResetPasswordComponent
     // UniqueUsernameDirective
   ],
   imports: [
@@ -64,7 +66,9 @@ import { ResetPasswordComponent } from './change-password/reset-password/reset-p
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    MyMaterialModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [

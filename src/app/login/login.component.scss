@@ -1,21 +1,196 @@
+body{
+  // font-family: 'Roboto', sans-serif;
+  margin:0px !important;
+  overflow: hidden;
+  // added
+  line-height: 1.8;
+  color: #222;
+  font-weight: 400;
+  font-family: 'Montserrat';
+}
+/** form **/
+.form-wraper{
+  width: 100%;
+  margin-top: 2%;
+}
+.form-container{
+  width: 35%;
+  margin: auto;
+  padding-bottom: 24px !important;
+  display: block;
+  // background: rgb(253, 253, 253);
+  // background: #b0e0e6;
+  background: linear-gradient(to right, #5f9ea0, #999)
+}
+.card {
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
 
-:root {
-    --input-padding-x: 1.5rem;
-    --input-padding-y: .75rem;
+/** form header **/
+.form-header{
+  padding: 24px 0;
+}
+.form-title{
+  text-align: center;
+  font-weight: 200;
+  font-size: 2.5em;
+}
+.main-lock-icon{
+  width: 20%;
+  margin: 5px auto;
+  display: block;
+}
+
+/** form body **/
+.form-body{
+  padding: 0 24px;
+}
+.justifier {
+  width: 100%;
+}
+.form-input{
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 400;
+  ::placeholder {
+  color: #999;
+}
+}
+
+/** form footer **/
+.form-footer{
+  padding: 24px;
+}
+.btn{
+  display: block;
+  width: 100%;
+  padding: 5% !important;
+  font-size: 1.5em;
+  font-weight: 200;
+  margin-top: 18px;
+}
+.justify-content-around {
+  padding: 10px auto;
+  text-align: center;
+  color: #222;
+
+  margin-top: 40px;
+}
+.custom-btn {
+  margin-bottom: 15px;
+  // background: #3f51b5;
+  color: #fff;
+  background-image :    -moz-linear-gradient(to left, #74ebd5,#9face6);
+  background-image :     -ms-linear-gradient(to left, #74ebd5,#9face6);
+  background-image :      -o-linear-gradient(to left, #74ebd5,#9face6);
+  background-image : -webkit-linear-gradient(to left, #74ebd5,#9face6);
+  background-image :         linear-gradient(to left, #74ebd5,#9face6);
+}
+.google-icon{
+  width: 6%;
+}
+.txt {
+  text-align: center;
+  color: #333;
+  margin: 10px auto !important;
+}
+/*.createaccount-link {
+  font-weight: 700;
+  // color: #222; 
+}*/
+.additional-link{
+  padding: 10px auto;
+  text-align: center;
+  color: #333;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+a {
+  text-decoration: none;
+  color: rgb(3, 3, 73);
+  font-weight: 500;
+}
+
+/*
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+} 
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form-container{
+      width: 95%;
+      margin: auto;
+      padding-bottom: 24px !important;
+      display: block;
+      background: linear-gradient(to right, #5f9ea0, #999);
   }
-  /*body {
-    background: #007bff;
-    background: linear-gradient(to right, #0062E6, #33AEFF);
-  } */ 
-  .card-signin .card-header {
-    margin-bottom: 2rem;
-    font-weight: 300;
-    font-size: 1.5rem;
-    width: 100%;
+  .btn{
+      font-size: 1em;
   }
-  .card-signin .card-body {
-    padding: 2rem;
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+} 
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+
+ */
+@media (min-width: 481px) and (max-width: 767px) {
+  .form-container{
+      width: 95%;
+      margin: auto;
+      padding-bottom: 24px !important;
+      display: block;
+      background: linear-gradient(to right, #5f9ea0, #999);
   }
-   .form {
-    width: 100%;
+  .btn{
+      font-size: 1em;
   }
+} 
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .form-container{
+      width: 95%;
+      margin: auto;
+      padding-bottom: 24px !important;
+      display: block;
+      background: linear-gradient(to right, #5f9ea0, #999);
+  }
+  .btn{
+      font-size: 1em;
+  }
+}
