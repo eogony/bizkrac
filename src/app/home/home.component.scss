@@ -1,11 +1,17 @@
  $basecolor: #3996DB;
+ $color-green:#0daf91;
+ $color-white:#fff;
+ $color-body:none;
+ $font-popins:"Open Sans", sans-serif;
 
-/*body {
-    margin: 0;
-    padding: 0;
-    padding-top: 20px;
-    text-align: center;
-}*/
+// main {
+//     margin: 0;
+//     padding: 0;
+//     background-image: repeating-linear-gradient(315deg, #06bcfb 0%, #4884ee 54%);
+//     padding-top: 0px;
+//     text-align: center;
+// }
+
 #slider_area {
     background-image: url(../../assets/image/pic.jpg);
     -webkit-background-size: cover;
@@ -58,36 +64,77 @@ a {
 }
 }
 
-#search {
-    margin-top: 20px;
+.search-form {
+    margin-top:0;
     border: grey;
     font-family: 'Montserrat';
     font-size: 18px;
 
-    .form-control {
-        padding: 0px;
-        font-size: 18px;
-        border-color: aquamarine;
-        // height: 34px !important;
-    }
 }
 
 /* .btn-outline-secondary {
     background: whitesmoke;
  } */
 
-#services {
-    padding: 100px;
-}
-.single-services {
-    span {
-        display: inline-block;
-        width: 60px;
-        height: 60px;
-        background-color: $basecolor;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
+// #services {
+//     padding: 100px;
+// }
+// .single-services {
+//     span {
+//         display: inline-block;
+//         width: 60px;
+//         height: 60px;
+//         background-color: $basecolor;
+//         -webkit-border-radius: 50%;
+//         -moz-border-radius: 50%;
+//         border-radius: 50%;
+//
+//     }
+// }
 
-    }
+.form-control {
+    padding: 0px;
+    font-size: 32px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 3px;
+    margin-right:0;
+    // border-color: aquamarine;
+    // height: 34px !important;
 }
+.inputGroupSelect{
+  padding:0px;
+  font-size: 32px;
+  margin-left: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 3px;
+}
+.btn-search {
+    width: 85px;
+    height: 60px;
+    // background: $color-green;
+    color: $color-white;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 0;
+    outline: none;
+    box-shadow: none;
+    // cursor: pointer;
+  }
+
+  .btn-search img{
+       object-fit: cover;
+       max-width: 20px;
+       max-height: 22px;
+       margin-top: -3px;
+   }
+  i{
+       color: $color-white;
+   }
+    i:focus {
+       border: 1px solid $color-green;
+   }

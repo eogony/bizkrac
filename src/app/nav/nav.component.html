@@ -1,24 +1,18 @@
 <nav>
   <div class="container">
     <div class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <!--<a class="navbar-brand" href="#">Bizkrac</a>-->
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/">Biz<span class="sr-only">(current)</span>krac</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <a class="navbar-brand" href="#">Bizkrac</a>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mx-auto">
-          <!--<li class="nav-item active"><a class="nav-link" routerLink="/"><span data-feather="home"></span>Home <span class="sr-only">(current)</span></a></li>-->
-          <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link" routerLink="/about">About</a>
           </li>
           <li class="nav-item">
-            <!--<a class="nav-link disabled" routerLink="#">Disabled</a>-->
             <a class="nav-link" routerLink="/contact">Contact Us</a>
           </li>
           <li ngbDropdown class="nav-item dropdown">
-            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search Consultant</a>
+            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search Consult</a>
             <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown02">
               <a class="dropdown-item" routerLink="/admin/admin-users">Accounting & Finance</a>
               <a class="dropdown-item" routerLink="/jobs">Taxation</a>
@@ -40,7 +34,7 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <!-- <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
           <ul class="navbar-nav px-3">
@@ -48,7 +42,7 @@
               <a class="signout-link" href="#" (click)="logout()">Sign out</a>
             </li>
           </ul>
-        </form>
+        </form> -->
       </div>
     </div>
   </div>
