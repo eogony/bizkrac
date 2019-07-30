@@ -13,17 +13,22 @@
 }*/
 .bg-light {
     /*background: #7700FF !important; */
-    background-image: linear-gradient(to right,rgb(177, 130, 130),white);
-    margin-bottom: 0;
+    background-image: repeating-linear-gradient(315deg, #06bcfb 0%, #4884ee 54%);
+    margin-bottom: 0px;
     background-color: #ffffff;
-    border-color: #ffffff
+    border-color: #ffffff;
+
+}
+nav {
+  margin-bottom: 0px;
 }
 
 .dropdown-toggle {
     cursor: pointer;
 }
 .navbar-brand {
-    /*font-weight: bold;*/
+    font-weight: bold;
+    color: white;
     padding: 1em;
     text-transform: uppercase;
     font-size: .9em;
