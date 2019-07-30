@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { AbstractControl, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { DataService } from '../services/data.service';
-import { map } from 'rxjs/operators';
+import { map, debounceTime, take } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 
@@ -13,15 +14,13 @@ function isEmptyInputValue(value: any): boolean {
 @Injectable()
 export class FormValidators {
 
-
-static cannotContainSpace(control: AbstractControl): ValidationErrors | null {
-      if ((control.value as string).indexOf('') >= 0) {
-        return { cannotContainSpace: true};
-      }
-
-      return null;
+  static nospaceValidator(control: AbstractControl): { [s: string]: boolean } {
+    const re = / /;
+    if (control.value && control.value.match(re)) {
+      return { nospace: true };
     }
-
+    return null;
+  }
    /* static shouldBeUnique(dataservice: DataService): AsyncValidatorFn {
       return (c: AbstractControl): Promise<ValidationErrors | null>  |Observable<ValidationErrors | null> => {
         return dataservice.getUserByUname(c.value).pipe(
@@ -31,6 +30,17 @@ static cannotContainSpace(control: AbstractControl): ValidationErrors | null {
         );
       };
     }*/
+    static username(afs: AngularFirestore) {
+      return (control: AbstractControl) => {
+        const username = control.value.toLowerCase();
+        return afs.collection('users', ref => ref.where('username', '==', username))
+          .valueChanges().pipe(
+            debounceTime(500),
+            take(1),
+            map(arr => arr.length ? { usernameAvailable: false } : null),
+          );
+      };
+    }
 
     static shouldBeUnique(dataservice: DataService): AsyncValidatorFn {
       return (control: AbstractControl): Promise< { [key: string]: any } | null> | Observable<{ [key: string]: any } | null> => {

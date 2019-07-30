@@ -8,15 +8,5 @@ export class PasswordValidators {
            }
         });
     }
-    static passwordShouldMatch(control: AbstractControl) {
-        // tslint:disable-next-line:prefer-let
-        const newPassword = control.get('newPassword');
-        const confirmPassword = control.get('confirmPassword');
 
-        if (newPassword.value !== confirmPassword.value) {
-            return { passwordShouldMatch: true};
-
-            return null;
-        }
-    }
 }

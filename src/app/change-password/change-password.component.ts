@@ -9,20 +9,42 @@ import { PasswordValidators } from './password.validators';
 })
 export class ChangePasswordComponent {
 form: FormGroup;
+// submitted = false;
+success = false;
 
-constructor(fb: FormBuilder) {
+constructor(private fb: FormBuilder) {
   this.form = fb.group({
     oldPassword: ['',
       Validators.required,
       PasswordValidators.validOldPassword
     ],
-    newPassword: ['', Validators.required],
-    confirmPassword: ['', Validators.required]
+    newPassword: ['', Validators.compose(
+        [Validators.required,
+        Validators.maxLength(10),
+        Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$')]
+        )],
+    confirmPassword: ['']
   }, {
-    validator: PasswordValidators.passwordShouldMatch
+    validator: this.checkPasswords
   });
 }
 
+checkPasswords(group: FormGroup) {
+  const pass = group.controls.newPassword.value;
+  const confirmPass = group.controls.confirmPassword.value;
+
+  return pass === confirmPass ? null : { notSame: true };
+}
+
+onSubmit() {
+  // this.submitted = true;
+  if (this.form.invalid) {
+    return;
+  } else {
+    this.success = true;
+  }
+
+}
 get oldPassword() { return this.form.get('oldPassword'); }
 get newPassword() { return this.form.get('newPassword'); }
 get confirmPassword() { return this.form.get('confirmPassword'); }
