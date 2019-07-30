@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
+import { FooterComponent } from './footer/footer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { LoginComponent } from './login/login.component';
 import { FindconsultantComponent } from './findconsultant/findconsultant.component';

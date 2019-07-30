@@ -186,6 +186,13 @@
   resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.2.1.tgz#4b966aaed10cda0b430c9d80769b39d08032004d"
   integrity sha512-pS4zWhLLANzMbYVIKNtebDQKhm9+KANUDvDV6DwKP24XHzkZdvazKe1HC6uXWlf7QmDxSPFleCSBkn0tnQQzdQ==
 
+"@angular/flex-layout@^8.0.0-beta.26":
+  version "8.0.0-beta.26"
+  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-8.0.0-beta.26.tgz#05807e4daeb7c70da5653b681f8e8c0da87d133e"
+  integrity sha512-lXDLlMSNQhidW0grvisIsj/3gqLuYyN2MvABuRYybnFTc233sXGZuOAaulqq663LA0/DP/GNcz6a+A4ZAAlmPA==
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/forms@~8.0.1":
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-8.0.3.tgz#21282ba5616ee1641c2cbec9d34afd1c3482e44d"
@@ -992,7 +999,7 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
-angular-bootstrap-md@^8.0.0:
+angular-bootstrap-md@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/angular-bootstrap-md/-/angular-bootstrap-md-8.1.0.tgz#ecb0fe4ca8d32428a9f7949dd8082637d7ff18f8"
   integrity sha512-Blsb5cRUNne5qP7S6LVfJBSM2U26SA+/34tqd5xIk9pQbksSQjLYbse+L8z3QkEvi9M/hBOmEfKvNcFGZfCJ0w==
@@ -9694,10 +9701,10 @@ typescript@3.4.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.4.tgz#aac4a08abecab8091a75f10842ffa0631818f785"
   integrity sha512-xt5RsIRCEaf6+j9AyOBgvVuAec0i92rgCaS3S+UVf5Z/vF2Hvtsw08wtUTJqp4djwznoAgjSxeCcU4r+CcDBJA==
 
-typescript@3.4.5:
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.5.tgz#2d2618d10bb566572b8d7aad5180d84257d70a99"
-  integrity sha512-YycBxUb49UUhdNMU5aJ7z5Ej2XGmaIBL0x34vZ82fn3hGvD+bgrMrVDpatgz2f7YxUMJxMkbWxJZeAvDxVe7Vw==
+typescript@^3.4.5:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
+  integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
 
 uglify-js@^3.1.4:
   version "3.6.0"
