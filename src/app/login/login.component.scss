@@ -1,25 +1,25 @@
-body{
-  // font-family: 'Roboto', sans-serif;
-  margin:0px !important;
-  overflow: hidden;
-  // added
-  line-height: 1.8;
-  color: #222;
-  font-weight: 400;
-  font-family: 'Montserrat';
-}
+// body{
+//   // font-family: 'Roboto', sans-serif;
+//   margin:0px !important;
+//   overflow: hidden;
+//   // added
+//   line-height: 1.8;
+//   color: #222;
+//   font-weight: 400;
+//   font-family: 'Montserrat';
+// }
 /** form **/
 .form-wraper{
-  width: 100%;
+  width: 70%;
+  max-height: 200px;
   margin-top:0;
 }
 .form-container{
+  margin-top: 200px;
   width: 35%;
   margin:auto;
   padding-bottom: 24px !important;
   display: block;
-  // background: rgb(253, 253, 253);
-  // background: #b0e0e6;
   background: linear-gradient(to right, #5f9ea0, #999)
 }
 .card {
