@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 
 
@@ -7,9 +8,11 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-   constructor(public auth: AuthService) { }
+  loginForm: FormGroup;
+
+  constructor(public auth: AuthService, private formbuilder: FormBuilder) { }
    /* username: string;
   password: string;
 
@@ -21,20 +24,33 @@ export class LoginComponent {
     }
   }
   }*/
+  ngOnInit() {
+    this.createForm();
+  }
 
-  /*form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-  });
-
-  submit() {
-    if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
+  private createForm() {
+    this.loginForm = this.formbuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+  getError(el) {
+    switch (el) {
+      case 'user':
+        if (this.loginForm.get('username').hasError('required')) {
+          return 'Username required';
+        }
+        break;
+        case 'pass':
+          if (this.loginForm.get('password').hasError('required')) {
+            return 'Password required';
+          }
+          break;
+          default:
+            return '';
     }
   }
-  @Input() error: string | null;
-
-  @Output() submitEM = new EventEmitter();
-}*/
-
+  onSubmit(post) {
+    // this.post = post;
+  }
 }
