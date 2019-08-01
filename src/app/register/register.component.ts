@@ -51,6 +51,9 @@ export class RegisterComponent {
   checkPasswords(group: FormGroup) {
     const pass = group.controls.password.value;
     const confirmPass = group.controls.re_password.value;
+    if (confirmPass === '') {
+      return null;
+    }
     return pass === confirmPass ? null : { notSame: true };
   }
 

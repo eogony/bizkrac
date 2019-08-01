@@ -14,10 +14,10 @@ success = false;
 
 constructor(private fb: FormBuilder) {
   this.form = fb.group({
-    oldPassword: ['',
+    /*oldPassword: ['',
       Validators.required,
       PasswordValidators.validOldPassword
-    ],
+    ],*/
     newPassword: ['', Validators.compose(
         [Validators.required,
         Validators.maxLength(10),
@@ -33,6 +33,9 @@ checkPasswords(group: FormGroup) {
   const pass = group.controls.newPassword.value;
   const confirmPass = group.controls.confirmPassword.value;
 
+  if (confirmPass === '') {
+    return null;
+  }
   return pass === confirmPass ? null : { notSame: true };
 }
 
