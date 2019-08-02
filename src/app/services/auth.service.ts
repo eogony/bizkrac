@@ -27,16 +27,23 @@ export class AuthService {
      });
  }
 /*add the login() method that will be used to login users with email and password:*/
- async login(email: string, password: string) {
+ /*async login(email: string, password: string) {
     try {
         await this.afAuth.auth.signInWithEmailAndPassword(email, password);
         this.router.navigate(['/']);
     } catch (e) {
         window.alert('Error!' + e.message);
     }
-  }
+ }*/
 
-  // Sign up with email/password
+  async login(credential) {
+    try {
+        await this.afAuth.auth.signInWithCredential(credential);
+        this.router.navigate(['/']);
+    } catch (e) {
+        window.alert('Error!' + e.message);
+    }
+  }
 
 
   /*add logout method

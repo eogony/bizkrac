@@ -11,10 +11,11 @@ import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
+// import { AuthGuard } from './guard/auth.AuthGuard';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'admin', component: AdminComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },

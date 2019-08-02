@@ -1,17 +1,8 @@
-body{
-  // font-family: 'Roboto', sans-serif;
-  margin:0px !important;
-  overflow: hidden;
-  // added
-  line-height: 1.8;
-  color: #222;
-  font-weight: 400;
-  font-family: 'Montserrat';
-}
 /** form **/
 .form-wraper{
   width: 100%;
-  margin-top:0;
+  margin-top:10px;
+  padding-bottom: 1.5em;
 }
 .form-container{
   width: 35%;
@@ -30,12 +21,14 @@ body{
 
 /** form header **/
 .form-header{
-  padding: 24px 0;
+  padding: 15px 0;
 }
 .form-title{
   text-align: center;
   font-weight: 200;
-  font-size: 2.5em;
+  font-size: 2em;
+  color: #fff;
+  font-family: 'Montserrat';
 }
 .main-lock-icon{
   width: 20%;
@@ -52,10 +45,12 @@ body{
 }
 .form-input{
   margin-top: 24px;
-  font-size: 20px;
+  font-size: 1em;
   font-weight: 400;
+  font-family: 'Montserrat';
   ::placeholder {
   color: #999;
+  // color: #fff;
 }
 }
 
@@ -69,43 +64,37 @@ body{
   padding: 5% !important;
   font-size: 1.5em;
   font-weight: 200;
-  margin-top: 18px;
+  margin-top: 13px;
 }
 .justify-content-around {
   padding: 10px auto;
   text-align: center;
   color: #222;
-
   margin-top: 40px;
 }
 .custom-btn {
   margin-bottom: 15px;
   // background: #3f51b5;
   color: #fff;
+  font-weight: 500;
   background-image :    -moz-linear-gradient(to left, #74ebd5,#9face6);
   background-image :     -ms-linear-gradient(to left, #74ebd5,#9face6);
   background-image :      -o-linear-gradient(to left, #74ebd5,#9face6);
   background-image : -webkit-linear-gradient(to left, #74ebd5,#9face6);
   background-image :         linear-gradient(to left, #74ebd5,#9face6);
 }
+.custom-btn:hover {
+  background: #3f51b5;
+}
 .google-icon{
   width: 6%;
 }
-.txt {
-  text-align: center;
-  color: #333;
-  margin: 10px auto !important;
-}
-/*.createaccount-link {
-  font-weight: 700;
-  // color: #222;
-}*/
 .additional-link{
   padding: 10px auto;
   text-align: center;
   color: #333;
   font-weight: 500;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 a {
