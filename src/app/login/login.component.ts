@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(public auth: AuthService, private formbuilder: FormBuilder) { }
+  constructor(private auth: AuthService, private formbuilder: FormBuilder) { }
    /* username: string;
   password: string;
 
@@ -51,6 +51,11 @@ export class LoginComponent implements OnInit {
     }
   }
   onSubmit(post) {
-    // this.post = post;
+    if (this.loginForm.invalid) {
+      return;
+    } else {
+      alert('Loading...');
+      // this.loginForm.reset();
+      }
   }
 }

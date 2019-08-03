@@ -4,6 +4,7 @@ import { FormValidators } from '../common/form.validators';
 // import { UniqueUsernameDirective } from '../register/unique-username.directive';
 // import { uniqueUsernameValidator } from '../register/unique-username.directive';
 import { DataService } from '../services/data.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class RegisterComponent {
   submitted = false;
   // success = false;
 
-  constructor(private formBuilder: FormBuilder, private dataservice: DataService) {
+  constructor(private formBuilder: FormBuilder, private dataservice: DataService, private auth: AuthService) {
     this.messageForm = this.formBuilder.group({
       name: ['', Validators.required],
       agree_term: ['', Validators.requiredTrue],
@@ -62,9 +63,8 @@ export class RegisterComponent {
     if (this.messageForm.invalid) {
       return;
     } else {
-      // this.success = true;
-      alert('The form was submitted');
-      this.messageForm.reset();
+      alert('Sign up successfull. Sign in to update your profile.');
+      // this.messageForm.reset();
       }
     }
 }

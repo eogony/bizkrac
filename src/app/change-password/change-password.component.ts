@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PasswordValidators } from './password.validators';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-change-password',
@@ -12,7 +13,7 @@ form: FormGroup;
 // submitted = false;
 success = false;
 
-constructor(private fb: FormBuilder) {
+constructor(private fb: FormBuilder, private auth: AuthService) {
   this.form = fb.group({
     /*oldPassword: ['',
       Validators.required,

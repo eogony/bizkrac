@@ -181,7 +181,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input formControlName="agree_term" type="checkbox" name="agree_term" id="agree_term" class="agree_term"/>
+                        <input formControlName="agree_term" type="checkbox" name="agree_term" id="agree_term" class="agree_term" required/>
                         <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all statements in  <a href="#" class="term-service">Terms of service</a></label>
                         <div class="invalidfeedback" *ngIf="submitted && agree_term.errors">
                           <div *ngIf="agree_term.invalid">
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up" [disabled]="!messageForm.valid"/>
+                        <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up" [disabled]="!messageForm.valid" (click)="auth.createUserWithEmailAndPassword(email.value, password.value)"/>
                     </div>
                 </form>
                 <p class="loginhere">
