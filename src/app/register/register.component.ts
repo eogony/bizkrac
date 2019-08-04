@@ -63,7 +63,7 @@ export class RegisterComponent {
     if (this.messageForm.invalid) {
       return;
     } else {
-      alert('Sign up successfull. Sign in to update your profile.');
+      alert('You are successfully registered. Log in to update your profile.');
       // this.messageForm.reset();
       }
     }
