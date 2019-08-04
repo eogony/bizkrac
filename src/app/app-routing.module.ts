@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
 import { UpdateProfileComponent } from './register/update-profile/update-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 // import { AuthGuard } from './guard/auth.AuthGuard';
 
 
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'admin/admin-users', component: AdminUsersComponent },
   { path: 'change-password/reset-password', component: ResetPasswordComponent },
-  { path: 'register/update-profile', component: UpdateProfileComponent }
+  { path: 'register/update-profile', component: UpdateProfileComponent },
+  { path: 'user-profile', component: UserProfileComponent }
 ];
 
 @NgModule({
