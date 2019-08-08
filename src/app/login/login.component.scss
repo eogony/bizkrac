@@ -10,16 +10,18 @@
 // }
 /** form **/
 .form-wraper{
-  width: 70%;
-  max-height: 200px;
-  margin-top:0;
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  padding: 20px;
+  // background-color: rgba(0, 0, 0, 0.5);
 }
 .form-container{
-  margin-top: 200px;
-  width: 35%;
-  margin:auto;
+  margin-top: 12%;
+  margin: auto;
   padding-bottom: 24px !important;
   display: block;
+  border-radius: 10px;
   background: linear-gradient(to right, #5f9ea0, #999)
 }
 .card {
@@ -80,7 +82,6 @@
 }
 .custom-btn {
   margin-bottom: 15px;
-  // background: #3f51b5;
   color: #fff;
   background-image :    -moz-linear-gradient(to left, #74ebd5,#9face6);
   background-image :     -ms-linear-gradient(to left, #74ebd5,#9face6);
