@@ -50,6 +50,10 @@ export class LoginComponent implements OnInit {
             return '';
     }
   }
+  // Accessing form control using getters
+  get username() { return this.loginForm.get('username'); }
+  get password() { return this.loginForm.get('password'); }
+
   onSubmit(post) {
     if (this.loginForm.invalid) {
       return;

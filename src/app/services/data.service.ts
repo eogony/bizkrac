@@ -32,6 +32,7 @@ export class DataService {
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,8 @@ import { map, tap } from 'rxjs/operators';
 export class DataService {
   private url = 'https://console.firebase.google.com/project/bizkrac/database/bizkrac/data/username';
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private db: AngularFireDatabase) { }
 
   getUsers() {
       return this.http.get<any[]>(this.url).pipe(

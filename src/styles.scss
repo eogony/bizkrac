@@ -22,3 +22,12 @@
     }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+#food-form {
+    .mat-form-field-underline {
+      background-color: black;;
+    }
+    .mat-form-field-ripple {
+      background-color: black;
+    }
+  }

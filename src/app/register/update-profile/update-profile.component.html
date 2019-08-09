@@ -1,81 +1,156 @@
-<form class="needs-validation" novalidate>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="validationCustom01">First name</label>
-        <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationCustom02">Last name</label>
-        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationCustomUsername">Username</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend">@</span>
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-10">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Edit Profile</h4>
+                      <p class="card-category">Complete your profile</p>
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit(editProfileForm.value)" autocomplete="off">
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width" floatLabel="yes">
+                                    <mat-label>Upload Image</mat-label>
+                                    <input matInput type="text" placeholder="Upload Image" class="form-input">
+                                    <mat-icon matSuffix>mode_edit</mat-icon>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width" floatLabel="yes">
+                                    <input matInput placeholder="Username" class="form-input" id="username" formControlName="username">
+                                    <mat-error *ngIf="!editProfileForm.controls['username'].valid">{{ getError('uname') }}</mat-error>
+                                    <mat-icon matSuffix>mode_edit</mat-icon>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width" floatLabel="yes">
+                                    <input matInput placeholder="Email address" type="email" class="form-input" id="email" formControlName="email">
+                                    <mat-error *ngIf="!editProfileForm.controls['email'].valid">{{ getError('eml') }}</mat-error>
+                                    <mat-icon matSuffix>mode_edit</mat-icon>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width" floatLabel="yes">
+                                  <input matInput placeholder="Fist Name" type="text" class="form-input"  id="firstname" formControlName="firstname">
+                                  <mat-error *ngIf="!editProfileForm.controls['firstname'].valid">{{ getError('fname') }}</mat-error>
+                                  <mat-icon matSuffix>mode_edit</mat-icon>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width" floatLabel="yes">
+                                  <input matInput placeholder="Last Name" type="text" class="form-input"  id="lastname" formControlName="lastname">
+                                  <mat-error *ngIf="!editProfileForm.controls['firstname'].valid">{{ getError('lname') }}</mat-error>
+                                  <mat-icon matSuffix>mode_edit</mat-icon>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width" floatLabel="yes">
+                                      <span matPrefix>+ &nbsp;</span>
+                                      <input matInput placeholder="Telephone" type="text" class="form-input"  id="phone" formControlName="phone">
+                                      <mat-error *ngIf="!editProfileForm.controls['phone'].valid">{{ getError('tel') }}</mat-error>
+                                      <mat-icon matSuffix>mode_edit</mat-icon>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                                  <div class="col-md-12">
+                                          <table class="example-full-width" cellspacing="10" style="width: 100%"><tr>
+                                              <td><mat-form-field class="example-full-width" floatLabel="yes">
+                                                  <input matInput placeholder="City/Town" class="form-input" id="city" formControlName="city">
+                                                  <mat-error *ngIf="!editProfileForm.controls['city'].valid">{{ getError('town') }}</mat-error>
+                                                  <mat-icon matSuffix>mode_edit</mat-icon>
+                                              </mat-form-field></td>
+                                              <td><mat-form-field class="example-full-width" floatLabel="yes">
+                                                  <span matPrefix>P.O. Box &nbsp;</span>
+                                                  <input matInput placeholder="Mailing Address" class="form-input" id="mailingaddress" formControlName="address">
+                                                  <mat-error *ngIf="!editProfileForm.controls['address'].valid">{{ getError('addr') }}</mat-error>
+                                                  <mat-icon matSuffix>mode_edit</mat-icon>
+                                              </mat-form-field></td>
+                                              <td><mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="Postal Code" class="form-input" id="postalcode" formControlName="postalcode">
+                                                  <mat-error *ngIf="!editProfileForm.controls['postalcode'].valid">{{ getError('code') }}</mat-error>
+                                                  <mat-icon matSuffix>mode_edit</mat-icon>
+                                                  <!--<mat-hint>00201</mat-hint>-->
+                                              </mat-form-field></td>
+                                              <td><mat-form-field class="example-full-width" floatLabel="yes" fxFlex>
+                                                        <!--<mat-label>select country</mat-label>
+                                                        <select matNativeControl required>
+                                                          <option value="Kenya">Kenya</option>
+                                                          <option value="Rwanda">Rwanda</option>
+                                                          <option value="Uganda">Uganda</option>
+                                                          <option value="Ethiopia">Ethiopia</option>
+                                                        </select>-->
+                                                        <mat-label>Country</mat-label>
+                                                          <mat-select placeholder="Select Country" formControlName="country" (selectionChange)="selectionChanged($event)" disableRipple id="country" name="country" id ="country" class="form-control">
+                                                              <!--<mat-option>None</mat-option>-->
+                                                              <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
+                                                          </mat-select>
+                                                          <!--<mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>-->
+                                                      </mat-form-field></td>
+                                              </tr>
+                                          </table>
+                                  </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput placeholder="City/ Town" type="text" class="form-input">
+                                  <mat-icon matSuffix>mode_edit</mat-icon>
+                                </mat-form-field>
+                              </div>
+                              <div>                                   
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput placeholder="Postal Code" type="text" class="form-input">
+                                  <mat-icon matSuffix>mode_edit</mat-icon>
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <label>About Me</label>
+                                <mat-form-field class="example-full-width" style="width: 300px">
+                                   <textarea matInput placeholder="profile summary" cols="60" formControlName="aboutme" cdkTextareaAutosize cdkAutosizeMaxRows=1 cdkAutosizeMaxRows=7></textarea>
+                                   <mat-error *ngIf="!editProfileForm.controls['aboutme'].valid">{{ getError('about') }}</mat-error>
+                                   <mat-icon matSuffix>mode_edit</mat-icon>
+                                   <!--<mat-icon matSuffix style="font-size: 1.2em">search</mat-icon>-->
+                                 </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <button mat-raised-button class="btn btn-danger pull-right">Cancel</button>
+                            <button mat-raised-button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                          <div class="clearfix"></div>
+                          </div>
+                          
+                      </form>
+                  </div>
+              </div>
           </div>
-          <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-          <div class="invalid-feedback">
-            Please choose a username.
+          <div class="col-md-2">
+              <div class="card card-profile">
+                  <div class="card-avatar">
+                      <a href="javascript:void(0)">
+                          <!--<img class="img" src="./assets/img/faces/marc.jpg" />-->
+                      </a>
+                  </div>
+                  <div class="card-body" style="height:100%">
+                      <h6 class="card-category text-gray"></h6>
+                      <h4 class="card-title">Your Profile Summary</h4>
+                      <p class="card-description">
+                        {{ editProfileForm.controls.aboutme.value }}
+                      </p>
+                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="col-md-3 mb-3">
-        <label for="validationCustom03">Country:</label>
-        <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="validationCustom04">City:</label>
-        <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-        <div class="invalid-feedback">
-          Please provide a valid state.
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="validationCustom05">Phone:</label>
-        <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-        <div class="invalid-feedback">
-          Please provide a valid zip.
-        </div>
-      </div>
-      <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Please provide an industry.
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-    </div>
-    <div class="custom-file">
-        <input type="file" class="custom-file-input" id="customFile">
-        <label class="custom-file-label" for="customFile">Choose file</label>
-      </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-        <label class="form-check-label" for="invalidCheck">
-          Agree to terms and conditions
-        </label>
-        <div class="invalid-feedback">
-          You must agree before submitting.
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-primary" type="submit">Submit form</button>
-  </form>
+  </div>
+</div>
 
   

@@ -1,0 +1,55 @@
+body { 
+    // font-family: 'Montserrat';  
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+    height: 100%;
+   // padding: 5px;
+  }
+  label { 
+      display: block;
+  }
+  input, textarea {
+      display: block;
+      // width: auto;
+     // margin-bottom: 20px;
+      padding: 0.5em;
+      border:thin;
+      // min-width: 150px;
+      // max-width: 500px;
+      // width: 100%;
+      // width: 300px;
+  }
+  .main-content {
+      margin-top: 35px;
+      padding: 5px;   // moved frame away from navbar
+  }
+  .container-fluid {
+      margin-top: 0px;
+  }
+  .card {
+      background-color: none;
+  }
+  // change text color of input placeholder
+  .mat-form-field .mat-input-element::placeholder {
+      color: black !important;
+      -webkit-text-fill-color: black !important;
+  }
+  .example-full-width {
+    width: 90%;
+  }
+  
+  /*::ng-deep .mat-form-field-placeholder {
+      color:blue;
+    }
+    ::ng-deep .mat-focused .mat-form-field-placeholder {
+    
+      color:blue;
+    }
+    ::ng-deep .mat-form-field-underline {
+    
+      background-color:blue;
+    }*/
+  ::ng-deep .mat-form-field-underline .mat-form-field-ripple {
+  
+      background-color: rgb(226, 17, 44);
+    }
