@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, forwardRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 // import { DataService } from 'src/app/services/data.service';
-import { Router } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
 import { VERSION } from '@angular/material/core';
@@ -10,13 +9,13 @@ import { VERSION } from '@angular/material/core';
   selector: 'app-update-profile',
   templateUrl: './update-profile.component.html',
   styleUrls: ['./update-profile.component.scss'],
-  /*providers: [
+  providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => UpdateProfileComponent),
       multi: true
     }
-  ]*/
+  ]
 })
 export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
 

@@ -38,18 +38,41 @@ body {
     width: 90%;
   }
   
-  /*::ng-deep .mat-form-field-placeholder {
+  /* :host::ng-deep .mat-form-field-placeholder {
       color:blue;
     }
-    ::ng-deep .mat-focused .mat-form-field-placeholder {
+     :host::ng-deep .mat-focused .mat-form-field-placeholder {
     
       color:blue;
     }
-    ::ng-deep .mat-form-field-underline {
+     :host::ng-deep .mat-form-field-underline {
     
       background-color:blue;
     }*/
-  ::ng-deep .mat-form-field-underline .mat-form-field-ripple {
+    :host::ng-deep .mat-form-field-underline .mat-form-field-ripple {
   
       background-color: rgb(226, 17, 44);
     }
+
+    .mat-select ::ng-deep .mat-select-trigger {
+      min-width: 60px;
+      color: blue;
+    }
+    .mat-form-field .mat-select-placeholder {
+      background-color: black !important;
+      font-weight: bold;
+    }
+    .mat-select-value .mat-select-placeholder {
+      color: black !important;
+      font-weight: bold;
+    }
+    :host ::ng-deep .mat-select-placeholder {
+      color: black !important;
+      font-weight: bold;
+    }
+    .cdk-overlay-container .cdk-overlay-pane {
+      margin-top: 20%;
+   }  
+  :host ::ng-deep .mat-select-value-text {
+      color: black !important;
+  }

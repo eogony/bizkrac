@@ -85,7 +85,7 @@
                                                           <option value="Ethiopia">Ethiopia</option>
                                                         </select>-->
                                                         <mat-label>Country</mat-label>
-                                                          <mat-select placeholder="Select Country" formControlName="country" (selectionChange)="selectionChanged($event)" disableRipple id="country" name="country" id ="country" class="form-control">
+                                                          <mat-select placeholder="Select Country" formControlName="country" (selectionChange)="selectionChanged($event)" disableRipple id="country" panelClass="testClass" name="country" id ="country">
                                                               <!--<mat-option>None</mat-option>-->
                                                               <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
                                                           </mat-select>
