@@ -5,13 +5,17 @@ import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-  constructor(public auth: AuthService) {  }
+
+  user: firebase.User;
+  constructor(public auth: AuthService, private afAuth: AngularFireAuth) {
+    // show login control only if user has not signed in
+    afAuth.authState.subscribe(user => this.user = user);
+   }
 
   logout() {
     this.auth.logout();
