@@ -12,8 +12,8 @@ section .section-title {
 }
 #footer {
     background-color: #06bcfb;
-    // position: absolute;
-    // bottom: 0;
+    position: relative;
+    bottom: 1;
     background-image: repeating-linear-gradient(315deg, #06bcfb 0%, #4884ee 74%);
 }
 #footer h5{

@@ -12,20 +12,42 @@
   <section class="main">
     <div class="search-form">
                 <div class="col-md-10 offset-md-1">
+                                     <span id="searchBy">Find a Consultant </span>
+                                        <span id="searchBy">Filter by Industry</span>
+                                           <span id="searchBy">Filter by Location</span>
+
                                     <div class="input-group-append">
-                                      <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Find a Consultant by expert category">
-                                      <div class="input-group-append  ">
+                                      <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Enter search key ">
+
                                           <select id="inputGroupSelect">
-                                            <option selected="">Located in </option>
+                                            <option selected="">Select Industry</option>
+                                            <option value="1">Advertising</option>
+                                            <option value="2">Marketing</option>
+                                            <option value="3">Advocacy Organizations</option>
+                                            <option value="4">Aerospace</option>
+                                            <option value="5">Agribusiness</option>
+                                            <option value="6">Airport, Harbor, and Terminal Operations</option>
+                                            <option value="7">Alcoholic Beverages</option>
+                                            <option value="8">Alternative Energy Sources</option>
+                                            <option value="9">Amusement Parks and Attractions</option>
+                                            <option value="10">Animal Health / Veterinay Services</option>
+                                            <option value="11">Architecture, Engineering and Design</option>
+                                            <option value="12">Asset and Wealth Management</option>
+                                            <option value="13">Audio, Video and Photograph</option>
+                                          </select>
+
+                                          <select id="inputGroupSelect">
+                                            <option selected="">Select Location</option>
                                             <option value="1">Nairobi</option>
                                             <option value="2">Kisumu</option>
                                             <option value="3">Mombasa</option>
                                             <option value="3">Nakuru</option>
                                             <option value="3">Kilifi</option>
                                           </select>
-                                      </div>
 
-                                        <button class="btn-search btn btn-outline-secondary" type="button"><img src="../../assets/image/search.png" alt="Image">
+                                        <button class="btn-search btn btn-outline-secondary" type="button">
+                                          Search
+                                          <img src="../../assets/image/search.png" alt="Image">
                                         </button>
 
                                     </div>
@@ -34,63 +56,94 @@
 
   </section>
 
-    <!-- <section id="services">
-    <div class="section-services">
-        <div class="container-fluid">
-            <div class="div-row">
-                <div class="div-col-md-4">
-                    <div class="div-single-services">
-                        <span><i class="fa fa-comment-o fa-2x"></i></span>
-                        <h4>Accounting & Finance</h4>
-                            <div class="div-front-block-inner-body">
-                                <div class="div-front-block-inner-col-1">
-                                    <ul class="list-arrow">
-                                        <li></li>
-                                    </ul>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-                <div class="div-col-md-4">
-                        <div class="div-single-services">
-                            <span><i class="fa fa-dribbble fa-2x"></i></span>
-                            <h4>Taxation</h4>
-                                <div class="div-front-block-inner-body">
-                                    <div class="div-front-block-inner-col-1">
-                                        <ul class="list-arrow">
-                                            <li></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                        </div>
-                </div>
-                <div class="div-col-md-4">
-                        <div class="div-single-services">
-                            <span><i class="fa fa-cog fa-2x"></i></span>
-                            <h4>Assurance/ Audit</h4>
-                                <div class="div-front-block-inner-body">
-                                    <div class="div-front-block-inner-col-1">
-                                        <ul class="list-arrow">
-                                            <li></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                        </div>
-                </div>
-                <div class="div-col-md-4">
-                        <div class="div-single-services">
-                            <span><i class="fa fa-cog fa-2x"></i></span>
-                            <h4>Risk Management</h4>
-                                <div class="div-front-block-inner-body">
-                                    <div class="div-front-block-inner-col-1">
-                                        <ul class="list-arrow">
-                                            <li></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                        </div>
-                </div>
-            </div>
-        </div>
+
+<section>
+<div class="services">
+  <div class="row">
+    <div class="single-service">
+      <span><i class="fa fa-money fa-2x"></i></span>
+      <h4>Accounting & Finance</h4>
+          <div class="div-front-block-inner-body">
+              <div class="div-front-block-inner-col-1">
+                  <ul class="list-arrow">
+                    <li><a href="">{{accounting[0]}} </a></li>
+                    <li><a href="">{{accounting[1]}}</a></li>
+                  </ul>
+              </div>
+          </div>
+          <article>
+              <details>
+                <summary>More on Accounting and Finance</summary>
+                <ul>
+                <li *ngFor="let account of accounting.slice(2)"><a href=""> {{account}}</a></li>
+                </ul>
+              </details>
+            </article>
     </div>
-</section> -->
+
+    <div class="single-service">
+      <span><i class="fa fa-credit-card-alt fa-2x"></i></span>
+      <h4>Taxation</h4>
+          <div class="div-front-block-inner-body">
+              <div class="div-front-block-inner-col-1">
+                  <ul class="list-arrow">
+                    <li><a href="">{{Taxation[0]}}</a></li>
+                    <li><a href="">{{Taxation[1]}}</a></li>
+
+                  </ul>
+              </div>
+          </div>
+          <article>
+              <details>
+                <summary>More on Taxation</summary>
+                <ul>
+                <li *ngFor="let tax of Taxation.slice(2)"><a href=""> {{tax}}</a></li>
+                </ul>
+              </details>
+            </article>
+    </div>
+
+    <div class="single-service">
+      <span><i class="fa fa-cogs fa-2x"></i></span>
+      <h4>Assurance/Audit</h4>
+          <div class="div-front-block-inner-body">
+              <div class="div-front-block-inner-col-1">
+                  <ul class="list-arrow">
+                    <li><a href="">{{audits[0]}}</a></li>
+                    <li><a href="">{{audits[1]}}</a></li>
+                  </ul>
+              </div>
+          </div>
+          <article>
+              <details>
+                <summary>More on Assurance and Audit</summary>
+                <ul>
+                <li *ngFor="let audit of audits.slice(2)"><a href="">{{audit}}</a></li>
+                </ul>
+              </details>
+            </article>
+    </div>
+
+    <div class="single-service">
+      <span><i class="fa fa-exclamation-triangle fa-2x"></i></span>
+      <h4>Risk Management</h4>
+          <div class="div-front-block-inner-body">
+              <div class="div-front-block-inner-col-1">
+                  <ul class="list-arrow">
+                    <li><a href="">{{risks[0]}} </a></li>
+                    <li><a href="">{{risks[1]}} </a></li>
+                  </ul>
+              </div>
+          </div>
+          <article>
+              <details>
+                <summary>More on Risk Management</summary>
+                <ul>
+                <li *ngFor="let risk of risks.slice(2)"><a href=""> {{risk}}</a></li>
+                </ul>
+              </details>
+            </article>
+    </div>
+  </div>
+</div>
+</section>
