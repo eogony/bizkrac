@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, forwardRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-// import { DataService } from 'src/app/services/data.service';
+import { CategoryService } from 'src/app/services/category.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
 import { VERSION } from '@angular/material/core';
@@ -22,6 +22,7 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
   editProfileForm: FormGroup;
   // countries$;
   countries: any[];
+  industries: any[];
 
   // -------------------------------------
   @ViewChild(MatSelect, {static: false}) matSelect: MatSelect;
@@ -30,12 +31,18 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
   version = VERSION;
   // -------------------------------------
 
-  constructor(private formbuilder: FormBuilder, db: AngularFireDatabase ) {
+  constructor(private formbuilder: FormBuilder, db: AngularFireDatabase, private catservice: CategoryService ) {
       // this.countries$ = dataservice.getCountries();
       db.list('/countries').valueChanges()
         .subscribe(countries => {
           this.countries = countries;
-          console.log(this.countries);
+          // console.log(this.countries);
+        });
+
+      this.catservice.getIndustries().valueChanges()
+        .subscribe(industries => {
+          this.industries = industries;
+          console.log(this.industries);
         });
      }
 
@@ -55,7 +62,8 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
       country: ['', Validators.required],
       aboutme: ['', Validators.required],
       expertcategory: ['', Validators.required],
-      specialization: ['', Validators.required]
+      specialization: ['', Validators.required],
+      industry: ['', Validators.required]
     });
   }
 
@@ -120,6 +128,11 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
                               if (this.editProfileForm.get('specialization').hasError('required')) {
                                 return 'Specialization required';
                               }
+                              break;
+                              case 'indus':
+                                if (this.editProfileForm.get('industry').hasError('required')) {
+                                  return 'Industry experience required';
+                                }
     }
   }
    // Accessing form control using getters
@@ -135,6 +148,7 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
    get aboutme() { return this.editProfileForm.get('aboutme'); }
    get expertcategory() { return this.editProfileForm.get('expertcategory'); }
    get specialization() { return this.editProfileForm.get('specialization'); }
+   get industry() { return this.editProfileForm.get('industry'); }
 
   onSubmit(post) {
     if (this.editProfileForm.invalid) {
@@ -170,5 +184,15 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean) {
     // this.disabled = isDisabled;
+  }
+
+  // upload photo implementation
+
+  /*csvInputChange(fileInputEvent: any) {
+    console.log(fileInputEvent.target.files[0]);
+  }*/
+  onFileSelected(file): void {
+    const inputN = file.name;
+    console.log(inputN);
   }
 }

@@ -14,6 +14,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatFileUploadModule } from 'angular-material-fileupload';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
@@ -75,6 +76,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MyMaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    MatFileUploadModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [
