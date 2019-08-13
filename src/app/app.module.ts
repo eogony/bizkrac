@@ -38,6 +38,7 @@ import { ResetPasswordComponent } from './change-password/reset-password/reset-p
 import { MyMaterialModule } from './material';
 import { UpdateProfileComponent } from './register/update-profile/update-profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AuthGuardService } from './services/auth-guard.service';
 // import { UniqueUsernameDirective } from './register/unique-username.directive';
 
 
@@ -83,7 +84,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     DataService,
     FormValidators,
     CategoryService,
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
