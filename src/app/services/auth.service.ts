@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 // import { User } from 'firebase';
+import { Observable } from 'rxjs';
 import { User } from '../common/user';
 
 
@@ -12,6 +13,7 @@ import { User } from '../common/user';
 export class AuthService {
     /*add variable to store logged in user data*/
     userData: User;
+    user$: Observable<firebase.User>;
 
     /*inject the Firebase authentication service and the router via the service's constructor:*/
  constructor(
@@ -20,9 +22,13 @@ export class AuthService {
      public router: Router,
      public ngZone: NgZone  // NgZone service to remove outside scope warning
      ) {
+
+      // show login control only if the user has not signed in
+    this.user$ = afAuth.authState;
+
      /* in the constructor, we subscribe to the authentication state; if the user is logged in
         we save user data to the browser's local storage; otherwise we store a null user when logged out*/
-     this.afAuth.authState.subscribe(user => {
+    this.afAuth.authState.subscribe(user => {
          if (user) {
              this.userData = user;
              localStorage.setItem('user', JSON.stringify(this.userData));
