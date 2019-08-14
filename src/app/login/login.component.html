@@ -39,7 +39,7 @@
        </div>
 
         <div class="form-footer">
-            <button mat-raised-button class="btn custom-btn" type="submit" [disabled]="!loginForm.valid" (click)="auth.login(loginForm.value)">
+            <button mat-raised-button class="btn custom-btn" type="submit" [disabled]="!loginForm.valid" (click)="auth.login(username.value, password.value)">
               Login
             </button>
             <!--<div class="txt">

@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 // import { User } from 'firebase';
@@ -14,12 +14,14 @@ export class AuthService {
     /*add variable to store logged in user data*/
     userData: User;
     user$: Observable<firebase.User>;
+    loading = false;
 
     /*inject the Firebase authentication service and the router via the service's constructor:*/
  constructor(
      public afs: AngularFirestore,
      public afAuth: AngularFireAuth,
      public router: Router,
+     public route: ActivatedRoute, // get current route and store in local storage to navigate user to the desired page after login
      public ngZone: NgZone  // NgZone service to remove outside scope warning
      ) {
 
@@ -41,25 +43,32 @@ export class AuthService {
  }
 /*add the login() method that will be used to login users with email and password:*/
  async login(email: string, password: string) {
+    this.loading = true;
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/'; // if there is no returnUrl use root
+    localStorage.setItem('returnUrl', returnUrl);
+
     await this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then((result) => {
             this.ngZone.run(() => {
-                this.router.navigate(['/']);
+              // this.router.navigate(['/']);
+              const retUrl = localStorage.getItem('returnUrl');
+              this.router.navigateByUrl(retUrl);
             });
             this.setUserData(result.user);
         }).catch((e) => {
             window.alert('Error!' + e.message);
+            this.loading = false;
         });
  }
 
-  async signIn(credential) {
+  /*async signIn(credential) {
     try {
         await this.afAuth.auth.signInWithCredential(credential);
         this.router.navigate(['/']);
     } catch (e) {
         window.alert('Error!' + e.message);
     }
-  }
+  }*/
   async logout() {
     await this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
