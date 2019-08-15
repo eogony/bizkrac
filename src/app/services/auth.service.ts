@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-// import { User } from 'firebase';
+import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import { User } from '../common/user';
 
@@ -93,6 +93,20 @@ export class AuthService {
             window.alert(error.message);
         });
   }
+  // calls Firebase authentication method createUserWithEmailAndPassword() using the data provided by the user
+  // Firebase performs some validations to these data such as checking if the password is 6 chars, or if email
+  // is already associated to another account. If everything is OK, then Firebase will resolve the promise
+  // returning the new User information
+
+  /*doRegister(value) {
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+      .then(res => {
+        resolve(res);
+      }, err => reject(err));
+    });
+  }*/
+
   /*setting up user data when signing in with username/password, signing up and signing in with social auth
    provider in Firestore database using AngularFirestore + AngularFirestoreDocument service*/
   setUserData(user) {
@@ -124,6 +138,7 @@ export class AuthService {
       window.alert(error);
     });
   }
+
   changePassword(newPassword) {
     return this.afAuth.auth.currentUser.updatePassword(newPassword)
     .then(() => {
@@ -133,6 +148,34 @@ export class AuthService {
       window.alert(error);
     });
   }
+
+  FacebookLogin() {
+    return new Promise<any>((resolve, reject) => {
+      const provider = new firebase.auth.FacebookAuthProvider();
+      this.afAuth.auth
+      .signInWithPopup(provider)
+      .then(res => {
+        resolve(res);
+      }, err => {
+        console.log(err);
+        reject(err);
+      });
+    });
+ }
+
+ GoogleLogin() {
+  return new Promise<any>((resolve, reject) => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('profile');
+    provider.addScope('email');
+    this.afAuth.auth
+    .signInWithPopup(provider)
+    .then(res => {
+      resolve(res);
+    });
+  });
+}
+
   /*reauthenticate() {
     if (yourFormValidation === true) {
       const user = auth().currentUser;

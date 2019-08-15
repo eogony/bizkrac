@@ -155,9 +155,18 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
       return;
     } else {
       alert('You have successfully updated your profile');
-      // this.router.navigate(['/login']);
+      // this.router.navigate(['/']);
       }
   }
+  /*onSubmit(value){
+    this.firebaseService.createUser(value, this.avatarLink)
+    .then(
+      res => {
+        this.resetFields();
+        this.router.navigate(['/home']);
+      }
+    )
+  }*/
 
   // dropdown menu implementaion
   selectionChanged(event: MatSelectChange) {
