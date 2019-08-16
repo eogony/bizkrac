@@ -63,7 +63,7 @@ export class RegisterComponent {
   }
 
   tryRegister(value) {
-    this.auth.createUserWithEmailAndPassword(this.email, this.password)
+    this.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
     .then(res => {
       console.log(res);
       this.errorMessage = '';

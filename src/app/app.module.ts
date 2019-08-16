@@ -39,6 +39,7 @@ import { MyMaterialModule } from './material';
 import { UpdateProfileComponent } from './register/update-profile/update-profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { UserService } from './services/user.service';
 // import { UniqueUsernameDirective } from './register/unique-username.directive';
 
 
@@ -84,6 +85,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     DataService,
     FormValidators,
     CategoryService,
+    UserService,
     AuthService,
     AuthGuardService
   ],

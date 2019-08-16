@@ -4,6 +4,10 @@ import { CategoryService } from 'src/app/services/category.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
 import { VERSION } from '@angular/material/core';
+// import { User } from 'src/app/user.model';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-update-profile',
@@ -31,7 +35,13 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
   version = VERSION;
   // -------------------------------------
 
-  constructor(private formbuilder: FormBuilder, db: AngularFireDatabase, private catservice: CategoryService ) {
+  constructor(private formbuilder: FormBuilder,
+              private db: AngularFireDatabase,
+              private catservice: CategoryService,
+              private userservice: UserService,
+              private router: Router,
+            ) {
+
       // this.countries$ = dataservice.getCountries();
       db.list('/countries').valueChanges()
         .subscribe(countries => {
@@ -63,10 +73,11 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
       aboutme: ['', Validators.required],
       expertcategory: ['', Validators.required],
       specialization: ['', Validators.required],
-      industry: ['', Validators.required]
+      industry: ['', Validators.required],
+      picture: []
     });
   }
-
+  // user input validation
   getError(el) {
     switch (el) {
       case 'uname':
@@ -135,11 +146,11 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
                                 }
     }
   }
-   // Accessing form control using getters
+   // access form control  values using getters
    get username() { return this.editProfileForm.get('username'); }
    get email() { return this.editProfileForm.get('email'); }
    get firstname() { return this.editProfileForm.get('firstname'); }
-   get lasttname() { return this.editProfileForm.get('lasttname'); }
+   get lastname() { return this.editProfileForm.get('lastname'); }
    get phone() { return this.editProfileForm.get('phone'); }
    get city() { return this.editProfileForm.get('city'); }
    get address() { return this.editProfileForm.get('address'); }
@@ -149,24 +160,17 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
    get expertcategory() { return this.editProfileForm.get('expertcategory'); }
    get specialization() { return this.editProfileForm.get('specialization'); }
    get industry() { return this.editProfileForm.get('industry'); }
+   get picture() { return this.editProfileForm.get('picture'); }
 
-  onSubmit(post) {
+  onSubmit(value) {
     if (this.editProfileForm.invalid) {
       return;
     } else {
-      alert('You have successfully updated your profile');
-      // this.router.navigate(['/']);
-      }
+      this.userservice.addProfileData(value);
+      this.editProfileForm.reset();
+      this.router.navigate(['/']);
+    }
   }
-  /*onSubmit(value){
-    this.firebaseService.createUser(value, this.avatarLink)
-    .then(
-      res => {
-        this.resetFields();
-        this.router.navigate(['/home']);
-      }
-    )
-  }*/
 
   // dropdown menu implementaion
   selectionChanged(event: MatSelectChange) {
@@ -195,7 +199,7 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
     // this.disabled = isDisabled;
   }
 
-  // upload photo implementation
+  // upload profile photo implementation
 
   /*csvInputChange(fileInputEvent: any) {
     console.log(fileInputEvent.target.files[0]);
