@@ -10,21 +10,14 @@
                   <div class="card-body">
                       <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit(editProfileForm.value)" autocomplete="off">
                           <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width" floatLabel="yes">
-                                    <mat-label>Upload Image</mat-label>
-                                    <input matInput type="text" placeholder="Upload Image" class="form-input">
-                                    <mat-icon matSuffix>mode_edit</mat-icon>
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
+                              <div class="col-md-6">
                                   <mat-form-field class="example-full-width" floatLabel="yes">
                                     <input matInput placeholder="Username" class="form-input" id="username" formControlName="username">
                                     <mat-error *ngIf="!editProfileForm.controls['username'].valid">{{ getError('uname') }}</mat-error>
                                     <mat-icon matSuffix>mode_edit</mat-icon>
                                   </mat-form-field>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-6">
                                   <mat-form-field class="example-full-width" floatLabel="yes">
                                     <input matInput placeholder="Email address" type="email" class="form-input" id="email" formControlName="email">
                                     <mat-error *ngIf="!editProfileForm.controls['email'].valid">{{ getError('eml') }}</mat-error>
@@ -32,6 +25,7 @@
                                   </mat-form-field>
                               </div>
                           </div>
+                          <br>
                           <div class="row">
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width" floatLabel="yes">
@@ -56,6 +50,7 @@
                                   </mat-form-field>
                               </div>
                           </div>
+                          <br>
                           <div class="row">
                                   <div class="col-md-12">
                                           <table class="example-full-width" cellspacing="10" style="width: 100%"><tr>
@@ -76,55 +71,77 @@
                                                   <mat-icon matSuffix>mode_edit</mat-icon>
                                                   <!--<mat-hint>00201</mat-hint>-->
                                               </mat-form-field></td>
-                                              <td><mat-form-field class="example-full-width" floatLabel="yes" fxFlex>
-                                                        <!--<mat-label>select country</mat-label>
-                                                        <select matNativeControl required>
-                                                          <option value="Kenya">Kenya</option>
-                                                          <option value="Rwanda">Rwanda</option>
-                                                          <option value="Uganda">Uganda</option>
-                                                          <option value="Ethiopia">Ethiopia</option>
-                                                        </select>-->
-                                                        <mat-label>Country</mat-label>
-                                                          <mat-select placeholder="Select Country" formControlName="country" (selectionChange)="selectionChanged($event)" disableRipple id="country" panelClass="testClass" name="country" id ="country">
-                                                              <!--<mat-option>None</mat-option>-->
-                                                              <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
-                                                          </mat-select>
-                                                          <!--<mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>-->
-                                                      </mat-form-field></td>
                                               </tr>
                                           </table>
                                   </div>
                           </div>
+                          <br>
                           <div class="row">
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                  <input matInput placeholder="City/ Town" type="text" class="form-input">
-                                  <mat-icon matSuffix>mode_edit</mat-icon>
+                              <div class="col-md-4">
+                                <label for="uploadPicture" class="upload-file">Upload profile picture
+                                    <mat-icon>add_a_photo</mat-icon>
+                                </label>
+                                <!--<input id="fileInput" type="file" class="ng-hide" accept=".png">-->
+                                <!--<button type="button" mat-raised-button (click)="fileInput.click()">Add photo</button>-->
+                                <input class="ng-hide" 
+                                        type="file" 
+                                        id="uploadPicture" 
+                                        formControlName="picture"
+                                        accept="image/png" 
+                                        (change)="onFileSelected($event.target.files[0])">
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width" floatLabel="yes" fxFlex>
+                                  <mat-select placeholder="Select Country" formControlName="country" (selectionChange)="selectionChanged($event)" disableRipple id="country" panelClass="testClass" name="country" id ="country" required>
+                                    <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
+                                  </mat-select>
+                                  <mat-error *ngIf="!editProfileForm.controls['country'].valid">{{ getError('count') }}</mat-error>
                                 </mat-form-field>
                               </div>
-                              <div>                                   
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                  <input matInput placeholder="Postal Code" type="text" class="form-input">
-                                  <mat-icon matSuffix>mode_edit</mat-icon>
-                                </mat-form-field>
-                              </div>
+                              <div class="col-md-4">
+                                  <!--<mat-dialog-content [formGroup]="form">-->
+                                      <mat-form-field class="example-full-width" floatLabel="yes" fxFlex>
+                                          <mat-select placeholder="Select all applicable industries" formControlName="industry" multiple>
+                                            <mat-option *ngFor="let industry of industries" [value]="industry.value">{{ industry }}</mat-option>
+                                          </mat-select>
+                                          <mat-error *ngIf="!editProfileForm.controls['industry'].valid">{{ getError('indus') }}</mat-error>
+                                        </mat-form-field>
+                                  <!--</mat-dialog-content>-->
+                                </div>
                           </div>
+                          <br>
                           <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <label>About Me</label>
-                                <mat-form-field class="example-full-width" style="width: 300px">
+                                <mat-form-field class="example-full-width" style="width: 380px">
                                    <textarea matInput placeholder="profile summary" cols="60" formControlName="aboutme" cdkTextareaAutosize cdkAutosizeMaxRows=1 cdkAutosizeMaxRows=7></textarea>
                                    <mat-error *ngIf="!editProfileForm.controls['aboutme'].valid">{{ getError('about') }}</mat-error>
                                    <mat-icon matSuffix>mode_edit</mat-icon>
                                    <!--<mat-icon matSuffix style="font-size: 1.2em">search</mat-icon>-->
                                  </mat-form-field>
                               </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width" floatLabel="yes" fxFlex>
+                                  <mat-select placeholder="Select Expert Category" formControlName="expertcategory" (selectionChange)="selectionChanged($event)" disableRipple id="expertcategory" name="expertcategory" id ="expertcategory" required>
+                                    <mat-option *ngFor="let category of categories" [value]="category.value">{{ category }}</mat-option>
+                                  </mat-select>
+                                  <mat-error *ngIf="!editProfileForm.controls['expertcategory'].valid">{{ getError('cat') }}</mat-error>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <!--<mat-dialog-content [formGroup]="form">-->
+                                    <mat-form-field class="example-full-width" floatLabel="yes" fxFlex>
+                                        <mat-select placeholder="Select all applicable specializations" formControlName="specialization" multiple>
+                                          <mat-option *ngFor="let specialization of specializations" [value]="specialization.value">{{ specialization }}</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="!editProfileForm.controls['specialization'].valid">{{ getError('spec') }}</mat-error>
+                                      </mat-form-field>
+                                <!--</mat-dialog-content>-->
+                              </div>
                           </div>
                           <div class="row">
                             <button mat-raised-button class="btn btn-danger pull-right">Cancel</button>
-                            <button mat-raised-button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                            <button mat-raised-button type="submit" class="btn btn-primary pull-right" (click)="onSubmit(editProfileForm.value)">Update Profile</button>
                           <div class="clearfix"></div>
                           </div>
                           
@@ -135,7 +152,7 @@
           <div class="col-md-2">
               <div class="card card-profile">
                   <div class="card-avatar">
-                      <a href="javascript:void(0)">
+                      <a href="#">
                           <!--<img class="img" src="./assets/img/faces/marc.jpg" />-->
                       </a>
                   </div>
@@ -145,7 +162,7 @@
                       <p class="card-description">
                         {{ editProfileForm.controls.aboutme.value }}
                       </p>
-                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                      <!--<a class="btn btn-danger btn-round">Follow</a>-->
                   </div>
               </div>
           </div>

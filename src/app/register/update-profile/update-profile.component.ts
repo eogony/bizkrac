@@ -1,9 +1,13 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, forwardRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-// import { DataService } from 'src/app/services/data.service';
+import { CategoryService } from 'src/app/services/category.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
 import { VERSION } from '@angular/material/core';
+// import { User } from 'src/app/user.model';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-update-profile',
@@ -20,8 +24,9 @@ import { VERSION } from '@angular/material/core';
 export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
 
   editProfileForm: FormGroup;
-  // countries$;
   countries: any[];
+  industries: any[];
+  categories: any[];
 
   // -------------------------------------
   @ViewChild(MatSelect, {static: false}) matSelect: MatSelect;
@@ -30,12 +35,27 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
   version = VERSION;
   // -------------------------------------
 
-  constructor(private formbuilder: FormBuilder, db: AngularFireDatabase ) {
-      // this.countries$ = dataservice.getCountries();
-      db.list('/countries').valueChanges()
+  constructor(private formbuilder: FormBuilder,
+              private db: AngularFireDatabase,
+              private catservice: CategoryService,
+              private userservice: UserService,
+              private router: Router,
+            ) {
+
+      this.catservice.getCountries().valueChanges()
         .subscribe(countries => {
           this.countries = countries;
-          console.log(this.countries);
+          // console.log(this.countries);
+        });
+      this.catservice.getIndustries().valueChanges()
+        .subscribe(industries => {
+          this.industries = industries;
+          // console.log(this.industries);
+        });
+      this.catservice.getExpertCategory().valueChanges()
+      .subscribe(categories => {
+        this.categories = categories;
+        // console.log(this.expertcategories);
         });
      }
 
@@ -55,10 +75,12 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
       country: ['', Validators.required],
       aboutme: ['', Validators.required],
       expertcategory: ['', Validators.required],
-      specialization: ['', Validators.required]
+      specialization: ['', Validators.required],
+      industry: ['', Validators.required],
+      picture: []
     });
   }
-
+  // user input validation
   getError(el) {
     switch (el) {
       case 'uname':
@@ -120,13 +142,18 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
                               if (this.editProfileForm.get('specialization').hasError('required')) {
                                 return 'Specialization required';
                               }
+                              break;
+                              case 'indus':
+                                if (this.editProfileForm.get('industry').hasError('required')) {
+                                  return 'Industry experience required';
+                                }
     }
   }
-   // Accessing form control using getters
+   // access form control  values using getters
    get username() { return this.editProfileForm.get('username'); }
    get email() { return this.editProfileForm.get('email'); }
    get firstname() { return this.editProfileForm.get('firstname'); }
-   get lasttname() { return this.editProfileForm.get('lasttname'); }
+   get lastname() { return this.editProfileForm.get('lastname'); }
    get phone() { return this.editProfileForm.get('phone'); }
    get city() { return this.editProfileForm.get('city'); }
    get address() { return this.editProfileForm.get('address'); }
@@ -135,14 +162,17 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
    get aboutme() { return this.editProfileForm.get('aboutme'); }
    get expertcategory() { return this.editProfileForm.get('expertcategory'); }
    get specialization() { return this.editProfileForm.get('specialization'); }
+   get industry() { return this.editProfileForm.get('industry'); }
+   get picture() { return this.editProfileForm.get('picture'); }
 
-  onSubmit(post) {
+  onSubmit(value) {
     if (this.editProfileForm.invalid) {
       return;
     } else {
-      alert('You have successfully updated your profile');
-      // this.router.navigate(['/login']);
-      }
+      this.userservice.addProfileData(value);
+      this.editProfileForm.reset();
+      this.router.navigate(['/']);
+    }
   }
 
   // dropdown menu implementaion
@@ -170,5 +200,15 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean) {
     // this.disabled = isDisabled;
+  }
+
+  // upload profile photo implementation
+
+  /*csvInputChange(fileInputEvent: any) {
+    console.log(fileInputEvent.target.files[0]);
+  }*/
+  onFileSelected(file): void {
+    const inputN = file.name;
+    console.log(inputN);
   }
 }

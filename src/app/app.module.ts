@@ -14,6 +14,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatFileUploadModule } from 'angular-material-fileupload';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
@@ -37,6 +38,8 @@ import { ResetPasswordComponent } from './change-password/reset-password/reset-p
 import { MyMaterialModule } from './material';
 import { UpdateProfileComponent } from './register/update-profile/update-profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { UserService } from './services/user.service';
 // import { UniqueUsernameDirective } from './register/unique-username.directive';
 
 
@@ -75,13 +78,16 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MyMaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    MatFileUploadModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [
     DataService,
     FormValidators,
     CategoryService,
-    AuthService
+    UserService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

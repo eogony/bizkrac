@@ -1,10 +1,10 @@
 
 p { margin-bottom: 0px; font-size: 15px; color: #777;}
-h2 { 
-    line-height: 1.66; 
-    margin: 0; 
+h2 {
+    line-height: 1.66;
+    margin: 0;
     padding: 0;
-    font-weight: 900; 
+    font-weight: 900;
     color: #222;
     font-family: 'Montserrat';
     font-size: 24px;
@@ -26,9 +26,11 @@ body {
     padding: 115px 0;
 }
 .container  {
-    width: 660px;
+    width: 40%;
     position: relative;
-    margin: 0 auto;
+    padding: 20px;
+    margin:auto;
+
 }
 .display-flex  {
     display: flex;
@@ -64,7 +66,7 @@ body {
 
 }
 .signup-content {
-    background: #fff;
+    background-color:rgba(255, 255, 255, 0.6);
     border-radius: 10px;
     padding: 50px 85px;
 }
@@ -100,10 +102,10 @@ body {
     }
     &:focus {
         border: 1px solid transparent;
-        -webkit-border-image-source: 
-            -webkit-linear-gradient(to right, rgb(159,172,230),  rgb(116,235,213)); 
+        -webkit-border-image-source:
+            -webkit-linear-gradient(to right, rgb(159,172,230),  rgb(116,235,213));
         -moz-border-image-source:
-            -moz-linear-gradient(to right, rgb(159,172,230),  rgb(116,235,213)); 
+            -moz-linear-gradient(to right, rgb(159,172,230),  rgb(116,235,213));
         -o-border-image-source:
             -o-linear-gradient(to right, rgb(159,172,230),  rgb(116,235,213));
         border-image-source:
@@ -135,7 +137,7 @@ body {
     background-image :      -o-linear-gradient(to left, #74ebd5,#9face6);
     background-image : -webkit-linear-gradient(to left, #74ebd5,#9face6);
     background-image :         linear-gradient(to left, #74ebd5,#9face6);
-    
+
 }
 input[type=checkbox]:not(old){
     width     : 2em;
@@ -188,7 +190,7 @@ input[type=checkbox]:not(old){
     color: #555;
 }
 .term-service {
-    color: #555; 
+    color: #555;
 }
 
 .loginhere {

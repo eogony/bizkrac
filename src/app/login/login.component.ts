@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     } else {
-      alert('Loading...');
+      // alert('success');
       // this.loginForm.reset();
       }
   }

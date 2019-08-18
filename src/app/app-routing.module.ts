@@ -13,23 +13,25 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
 import { UpdateProfileComponent } from './register/update-profile/update-profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AuthGuardService } from './services/auth-guard.service';
 // import { AuthGuard } from './guard/auth.AuthGuard';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full'},
-  { path: 'admin', component: AdminComponent },
+  { path: '', redirectTo: '/', pathMatch: 'full'},
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'about', component: AboutComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'news', component: NewsComponent },
-  { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'admin/admin-users', component: AdminUsersComponent },
   { path: 'change-password/reset-password', component: ResetPasswordComponent },
   { path: 'register/update-profile', component: UpdateProfileComponent },
-  { path: 'user-profile', component: UserProfileComponent }
+  { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'user-profile', component: UserProfileComponent },
+
+  { path: 'admin/admin-users', component: AdminUsersComponent, canActivate: [AuthGuardService] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({

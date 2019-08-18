@@ -8,7 +8,14 @@ export class CategoryService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getCategories() {
-    return this.db.list('/categories');
+  getIndustries() {
+    return this.db.list('/sectors');
+  }
+
+  getExpertCategory() {
+    return this.db.list('/category');
+  }
+  getCountries() {
+    return this.db.list('/countries');
   }
 }

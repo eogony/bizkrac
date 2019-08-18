@@ -38,7 +38,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
   providedIn: 'root'
 })
 export class DataService {
-  private url = 'https://console.firebase.google.com/project/bizkrac/database/bizkrac/data/username';
+  private url = 'https://bizkrac.firebaseio.com/username';
 
 
   constructor(private http: HttpClient, private db: AngularFireDatabase) { }

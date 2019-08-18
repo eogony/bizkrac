@@ -1,7 +1,5 @@
- <nav>
-  <div class="container">
-    <mdb-navbar SideClass="navbar navbar-dark purple lighten-1" [containerInside]="false">
-    <div class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <mdb-navbar SideClass="navbar-dark " [containerInside]="false">
+    <div class="navbar navbar-expand-md bg-light fixed-top">
 
       <!-- Navbar brand -->
       <mdb-navbar-brand><a class="navbar-brand" href="#">Bizkrac</a></mdb-navbar-brand>
@@ -31,9 +29,9 @@
                             <div class="dropdown-menu">
                               <a class="dropdown-item" href="#">Action</a>
                               <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
+                              <a class="dropdown-item" href="#">Manage users</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Separated link</a>
+                              <a class="dropdown-item" href="#">Manage categories</a>
                             </div>
                       </div> -->
               <a class="dropdown-item waves-light" mdbWavesEffect href="#">Sectors</a>
@@ -43,6 +41,10 @@
             </div>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/register" mdbWavesEffect>Become a Consultant</a>
+          </li>
+
         </ul>
         <!-- Links -->
 
@@ -50,12 +52,14 @@
           <!-- <li class="nav-item">
             <a class="nav-link">1 <mdb-icon fas icon="envelope"></mdb-icon></a>
           </li> -->
-          <li *ngIf="!user" class="nav-item">
-            <a class="nav-link" routerLink="/login" mdbWavesEffect href="#">Login</a>
-          </li>
-          <li *ngIf="user" class="nav-item avatar dropdown" dropdown>
+          <ng-template #anonymousUser>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login" mdbWavesEffect href="#">Login</a>
+            </li>
+          </ng-template>
+          <li *ngIf="auth.user$ | async as user; else anonymousUser" class="nav-item avatar dropdown" dropdown>
             <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-              {{ user.displayName }}
+              {{ user.email }}
             </a>
             <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
             <!-- <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect> -->
@@ -66,41 +70,6 @@
           </li>
         </ul>
       </links>
-   <!-- <a class="navbar-brand" href="#">Bizkrac</a>
-   <div class ="menu">
-      <ol>
-   <li class="menu-item"><a routerLink="/about">Explore</a>
-     <ol class="sub-menu">
-       <li class="menu-item"><a href="#0">Big Widgets</a></li>
-       <li class="menu-item"><a href="#0">Bigger Widgets</a></li>
-       <li class="menu-item"><a href="#0">Huge Widgets</a></li>
-     </ol></li>
-    <li class="menu-item"><a routerLink="/new">News</a></li>
-   <li class="menu-item"><a routerLink="/about">About us</a></li>
-   <li class="menu-item">
-     <a routerLink="/contact">Contact Us</a>
-   </li>
-   <li class="menu-item">
-     <a href="#0">Kabobs</a>
-     <ol class="sub-menu">
-       <li class="menu-item"><a href="#0">Shishkabobs</a></li>
-       <li class="menu-item"><a href="#0">BBQ kabobs</a></li>
-       <li class="menu-item"><a href="#0">Summer kabobs</a></li>
-     </ol>
- </ol>
-   <menuitem type="command" label="Save">
-   <a routerLink="/login">>Login</a>
-   </menuitem>
 
- </div> -->
     </div>
     </mdb-navbar>
-  </div>
-</nav>
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark purple lighten-1" [containerInside]="false">
-
-
-  <!-- Collapsible content -->
-
-</mdb-navbar>
-<!--/.Navbar-->
