@@ -1,0 +1,55 @@
+{
+  "categories" : [ null,
+    {
+    "Taxation" : [ null, "Business Income Tax", "Capital Gains Tax", "Corporation Tax", "Employee Tax (PAYE)", "Export Incentives", "Fringe Benefits Tax", "Filling Tax Returns", "Indirect Taxes", "Inheritance Tax", "International Tax Compliance" ]
+    },
+    {
+      "Accounting and Finance" : [ null, "Accounting Management Information Systems", "Accounting Records Maintenance", "Accounts Preparation", "Accountancy / Finance Training", "Bid Support / Defence Services", "Budgeting / Forecasting", "Business Partnerships", "Business Plans", "Business Valuation", "Capital Adequacy" ]
+      },
+      {
+        "Assuance Audit" : [ null, "Asset Management Review", "Assurance / Audit Training", "Climate Change / Sustainability Audits", "Enviromental Audits", "Enviromental Impact Assessment", "Financial Statements / Statutory Audits", "Fraud Investigations", "Governance Efficiency Assessment", "HR Audit / Compliance", "Independent Examinations / Investigations" ]
+        },
+        {
+          "Risk Management" : [ null, "Actuarial Services", "Enterprise Risk Management", "Fraud Risk Management", "Political Risk Management", "Operational Risk Management", "Market Risk Assessment", "Other (specify)" ]
+          } ],
+          "sectors" : [ null, "Advertising, Marketing", "Advocacy Organizations", "Aerospace", "Agribusiness", "Airport, Harbor, and Terminal Operations", "Alcoholic Beverages", "Alternative Energy Sources", "Amusement Parks and Attractions", "Animal Health / Veterinay Services", "Architecture, Engineering and Design", "Asset and Wealth Management", "Audio, Video and Photography" ],
+          "username" : [ null, "ruizl", "eogony" ],
+          "users" : [ null, {
+            "address" : {
+              "city or town" : "nairobi",
+              "country" : "kenya",
+              "mailing" : [ null, "box 20 - 00204" ]
+            },
+            "avator" : "path",
+            "email" : "paketc@gmail.com",
+            "name" : "Leonrd Ruiz",
+            "phone" : "+256710841512",
+            "profile" : {
+              "Expert Category" : {
+                "Risk Management" : [ null, "Enterprise Risk Management", "Actuarial Services" ],
+                "Taxation" : [ null, "Social Security Compliance", "Filing Tax returns" ]
+              },
+              "Industry Expertise" : [ null, "Manufacturing, cement", "Education" ],
+              "Summary" : "Experience college accounting lecturer with ten years' industry experience"
+            },
+            "username" : "ruizl"
+            }, {
+              "address" : {
+                "city or town" : "kirinyaga",
+                "country" : "kenya",
+                "mailing" : [ null, "Box 30 - 00201" ]
+              },
+              "avator" : "path2",
+              "email" : "richalfry19@yahoo.com",
+              "name" : "Lexa Lewis",
+              "phone" : "+254845120398",
+              "profile" : {
+                "Expert category" : {
+                  "Accounting and Finance" : [ null, "Credit Control/ Debt Management/ Collection", "Design-To-Cost" ]
+                },
+                "Idustry expertise" : [ null, "Automobile/ Automotive", "Airport, Harbor, and Terminal Operations" ],
+                "summary" : "Experienced financial credit control analyst "
+              },
+              "username" : "eogony"
+              } ]
+            }
