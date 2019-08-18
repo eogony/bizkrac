@@ -24,9 +24,9 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
 
   editProfileForm: FormGroup;
-  // countries$;
   countries: any[];
   industries: any[];
+  categories: any[];
 
   // -------------------------------------
   @ViewChild(MatSelect, {static: false}) matSelect: MatSelect;
@@ -42,17 +42,20 @@ export class UpdateProfileComponent implements OnInit, ControlValueAccessor {
               private router: Router,
             ) {
 
-      // this.countries$ = dataservice.getCountries();
-      db.list('/countries').valueChanges()
+      this.catservice.getCountries().valueChanges()
         .subscribe(countries => {
           this.countries = countries;
           // console.log(this.countries);
         });
-
       this.catservice.getIndustries().valueChanges()
         .subscribe(industries => {
           this.industries = industries;
-          console.log(this.industries);
+          // console.log(this.industries);
+        });
+      this.catservice.getExpertCategory().valueChanges()
+      .subscribe(categories => {
+        this.categories = categories;
+        // console.log(this.expertcategories);
         });
      }
 

@@ -13,6 +13,9 @@ export class CategoryService {
   }
 
   getExpertCategory() {
-    return this.db.list('/categories');
+    return this.db.list('/category');
+  }
+  getCountries() {
+    return this.db.list('/countries');
   }
 }
