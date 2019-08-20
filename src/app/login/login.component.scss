@@ -1,14 +1,10 @@
-// body{
-//   // font-family: 'Roboto', sans-serif;
-//   margin:0px !important;
-//   overflow: hidden;
-//   // added
-//   line-height: 1.8;
-//   color: #222;
-//   font-weight: 400;
-//   font-family: 'Montserrat';
-// }
-/** form **/
+.container{
+  // width: 60%;
+  margin: auto;
+  padding-top: 80px;
+  height: 30%;
+  // padding-bottom: 30px;
+}
 .form-wraper{
   width: 50%;
   margin: auto;
@@ -17,12 +13,17 @@
   // background-color: rgba(0, 0, 0, 0.5);
 }
 .form-container{
-  margin-top: 12%;
+  // margin-top: 12%;
   margin: auto;
-  padding-bottom: 24px !important;
+  // padding-bottom: 24px !important;
   display: block;
   border-radius: 10px;
   background: linear-gradient(to right, #5f9ea0, #999)
+}
+a {
+  text-decoration: none;
+  color: rgb(3, 3, 73);
+  font-weight: 500;
 }
 .card {
   border-radius: 2px;
@@ -32,28 +33,22 @@
 
 /** form header **/
 .form-header{
-  padding: 24px 0;
+  padding: 15px 0;
 }
 .form-title{
   text-align: center;
   font-weight: 200;
   font-size: 2.5em;
 }
-.main-lock-icon{
-  width: 20%;
-  margin: 5px auto;
-  display: block;
-}
-
-/** form body **/
-.form-body{
+.form-body {
   padding: 0 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .justifier {
   width: 100%;
 }
 .form-input{
-  margin-top: 24px;
+  margin-top: 20px;
   font-size: 20px;
   font-weight: 400;
   ::placeholder {
@@ -71,23 +66,25 @@
   padding: 5% !important;
   font-size: 1.5em;
   font-weight: 200;
-  margin-top: 18px;
+  margin-top: 15px;
 }
 .justify-content-around {
-  padding: 10px auto;
+  padding: 6px auto;
   text-align: center;
   color: #222;
-
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .custom-btn {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: #fff;
   background-image :    -moz-linear-gradient(to left, #74ebd5,#9face6);
   background-image :     -ms-linear-gradient(to left, #74ebd5,#9face6);
   background-image :      -o-linear-gradient(to left, #74ebd5,#9face6);
   background-image : -webkit-linear-gradient(to left, #74ebd5,#9face6);
   background-image :         linear-gradient(to left, #74ebd5,#9face6);
+}
+.custom-btn:hover {
+  background: #3f51b5;
 }
 .google-icon{
   width: 6%;
@@ -102,11 +99,11 @@
   // color: #222;
 }*/
 .additional-link{
-  padding: 10px auto;
+  padding: 0px auto;
   text-align: center;
   color: #333;
   font-weight: 500;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-bottom: 10px;
 }
 a {

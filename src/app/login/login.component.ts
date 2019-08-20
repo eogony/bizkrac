@@ -1,40 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  constructor(public auth: AuthService, private formbuilder: FormBuilder) { }
 
-   constructor(public auth: AuthService) { }
-   /* username: string;
-  password: string;
+  ngOnInit() {
+    this.createForm();
+  }
+  private createForm() {
+    this.loginForm = this.formbuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+  getError(el) {
+    switch (el) {
+      case 'user':
+        if (this.loginForm.get('username').hasError('required')) {
+          return 'Username required';
+        }
+        break;
+        case 'pass':
+          if (this.loginForm.get('password').hasError('required')) {
+            return 'Password required';
+          }
+          break;
+          default:
+            return '';
+    }
+  }
+  // Accessing form control using getters
+  get username() { return this.loginForm.get('username'); }
+  get password() { return this.loginForm.get('password'); }
 
-  login(): void {
-    if(this.username === 'admin' && this.password === 'admin') {
-     this.router.navigate(['user']);
+  onSubmit(post) {
+    if (this.loginForm.invalid) {
+      return;
     } else {
-      alert('Invalid credentials');
-    }
+      // alert('success');
+      // this.loginForm.reset();
+      }
   }
-  }*/
-
-  /*form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-  });
-
-  submit() {
-    if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
-    }
-  }
-  @Input() error: string | null;
-
-  @Output() submitEM = new EventEmitter();
-}*/
 
 }

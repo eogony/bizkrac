@@ -112,6 +112,17 @@ export class AuthService {
           window.alert(error);
         });
     }
+    async logout() {
+        await this.afAuth.auth.signOut().then(() => {
+          localStorage.removeItem('user');
+          this.router.navigate(['/login']);
+        });
+    }
+    /* add isLoggedIn property to check if the user is logged in and email is verified*/
+    get isLoggedIn(): boolean {
+        const user = JSON.parse(localStorage.getItem('user'));
+        return (user !== null && user.emailVerified !== false) ? true : false;
+    }
     FacebookLogin() {
         return new Promise<any>((resolve, reject) => {
           const provider = new firebase.auth.FacebookAuthProvider();
