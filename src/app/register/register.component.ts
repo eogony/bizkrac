@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormValidators } from '../common/form.validators';
-// import { UniqueUsernameDirective } from '../register/unique-username.directive';
-// import { uniqueUsernameValidator } from '../register/unique-username.directive';
 import { DataService } from '../services/data.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,9 +14,14 @@ import { DataService } from '../services/data.service';
 export class RegisterComponent {
   messageForm: FormGroup;
   submitted = false;
-  // success = false;
+  success = false;
+  errorMessage: string ;
+  successMessage: string;
 
-  constructor(private formBuilder: FormBuilder, private dataservice: DataService) {
+  constructor(private formBuilder: FormBuilder,
+              private dataservice: DataService,
+              private auth: AuthService,
+              private router: Router) {
     this.messageForm = this.formBuilder.group({
       name: ['', Validators.required],
       agree_term: ['', Validators.requiredTrue],
@@ -51,7 +56,23 @@ export class RegisterComponent {
   checkPasswords(group: FormGroup) {
     const pass = group.controls.password.value;
     const confirmPass = group.controls.re_password.value;
+    if (confirmPass === '') {
+      return null;
+    }
     return pass === confirmPass ? null : { notSame: true };
+  }
+
+  tryRegister(value) {
+    this.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
+    .then(res => {
+      console.log(res);
+      this.errorMessage = '';
+      this.successMessage = 'Your account has been created';
+    }, err => {
+      console.log(err);
+      this.errorMessage = err.message;
+      this.successMessage = '';
+    });
   }
 
   signUp() {
@@ -59,9 +80,9 @@ export class RegisterComponent {
     if (this.messageForm.invalid) {
       return;
     } else {
-      // this.success = true;
-      alert('The form was submitted');
+      // alert('Your account has been created. Log in to update your profile.');
       this.messageForm.reset();
+      this.router.navigate(['/register/update-profile']);
       }
     }
 }
