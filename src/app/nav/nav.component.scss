@@ -18,16 +18,18 @@
 
 ul {
     list-style: none;
+    margin: auto;
   }
 
  ul > li {
-    background: #06bcfb;
+    background: #4884ee;
     border-left: 5px solid var(--gradient-color);
     margin-right: 30px;
     border-radius: 5px;
     position: relative;
-    width: auto;
+    height: inherit;
     transition: .5s;
+    font-weight: 600;
   }
 
   ul > li:nth-child(1) {
@@ -47,19 +49,28 @@ ul {
     margin-left: 15px;
   }
 ul > li:nth-child(4) {
+      background: #06bcfb;
     --accent-color: #D8B5FF;
     --gradient-color: #1EAE98;
     margin-left: 15px;
   }
+ul > li:nth-child(5) {
+        background: #06bcfb;
+      --accent-color: #D8B5FF;
+      --gradient-color: #1EAE98;
+      margin-left: 15px;
+    }
 
  ul > li a , .dropdown a {
     color: #FBFBFB;
     display: block;
     padding: 15px;
-    position: relative;
+    position:sticky;
+    font-weight: 500;
     font-size: 16px;
     text-decoration: none;
     z-index: 1;
+    width: auto;
   }
 
 ul > li:focus, ul > li:focus-within, ul > li:hover {
@@ -88,8 +99,9 @@ ul > li:focus a:before, ul > li:focus-within a:before {
 
 .dropdown a:hover, .dropdown a:focus {
     background: rgba(60,60,60,0.3);
+    display: block;
   }
  .dropdown a:after {
-    bottom: 5px;
-     // height: 1px;
+   background: rgba(60,60,60,0.3);
+   display: block;
   }
