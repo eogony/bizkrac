@@ -35,7 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
 import { MyMaterialModule } from './material';
-// import { UniqueUsernameDirective } from './register/unique-username.directive';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -77,7 +77,8 @@ import { MyMaterialModule } from './material';
     DataService,
     FormValidators,
     CategoryService,
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

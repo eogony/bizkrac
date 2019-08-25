@@ -11,11 +11,11 @@ import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'admin', component: AdminComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'jobs', component: JobsComponent },
   { path: 'news', component: NewsComponent },
   { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'admin/admin-users', component: AdminUsersComponent },
+  { path: 'admin/admin-users', component: AdminUsersComponent, canActivate: [AuthGuardService] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
   { path: 'change-password/reset-password', component: ResetPasswordComponent }
 ];
 
