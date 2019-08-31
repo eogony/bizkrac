@@ -40,13 +40,13 @@ export class LoginComponent implements OnInit {
   get username() { return this.loginForm.get('username'); }
   get password() { return this.loginForm.get('password'); }
 
-  onSubmit(post) {
+  /*onSubmit() {
     if (this.loginForm.invalid) {
       return;
     } else {
       // alert('success');
       // this.loginForm.reset();
       }
-  }
+  }*/
 
 }

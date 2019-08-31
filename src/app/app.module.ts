@@ -36,7 +36,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
 import { MyMaterialModule } from './material';
 import { AuthGuardService } from './services/auth-guard.service';
-
+import { AdminUserService } from './services/admin-user.service';
 
 @NgModule({
   declarations: [
@@ -78,7 +78,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     FormValidators,
     CategoryService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    AdminUserService
   ],
   bootstrap: [AppComponent]
 })
