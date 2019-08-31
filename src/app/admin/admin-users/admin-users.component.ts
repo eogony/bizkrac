@@ -13,7 +13,7 @@ export class AdminUsersComponent implements OnInit {
   save(user) {
     this.adminUserService.create(user);
   }
-  
+
   ngOnInit() {
   }
 
