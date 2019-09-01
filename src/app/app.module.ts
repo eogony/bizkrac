@@ -21,7 +21,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { LoginComponent } from './login/login.component';
 import { FindconsultantComponent } from './findconsultant/findconsultant.component';
-import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { RegisterComponent } from './register/register.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
@@ -37,6 +36,7 @@ import { MyMaterialModule } from './material';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AdminUserService } from './services/admin-user.service';
 import { UsersComponent } from './admin/users/users.component';
+import { NewComponent } from './admin/users/new/new.component';
 
 @NgModule({
   declarations: [
@@ -48,13 +48,13 @@ import { UsersComponent } from './admin/users/users.component';
     ChangePasswordComponent,
     LoginComponent,
     FindconsultantComponent,
-    AdminUsersComponent,
     RegisterComponent,
     JobsComponent,
     NewsComponent,
     AboutComponent,
     ResetPasswordComponent,
-    UsersComponent
+    UsersComponent,
+    NewComponent
     // UniqueUsernameDirective
   ],
   imports: [
