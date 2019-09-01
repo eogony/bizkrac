@@ -11,4 +11,7 @@ export class AdminUserService {
   create(user) {
     return this.db.list('/users').push(user);
   }
+  getAll() {
+    return this.db.list('/users').valueChanges();
+  }
 }

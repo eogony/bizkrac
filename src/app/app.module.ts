@@ -17,7 +17,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
-import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from './footer/footer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { LoginComponent } from './login/login.component';
@@ -37,6 +36,7 @@ import { ResetPasswordComponent } from './change-password/reset-password/reset-p
 import { MyMaterialModule } from './material';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AdminUserService } from './services/admin-user.service';
+import { UsersComponent } from './admin/users/users.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,6 @@ import { AdminUserService } from './services/admin-user.service';
     ContactComponent,
     NavComponent,
     FooterComponent,
-    AdminComponent,
     ChangePasswordComponent,
     LoginComponent,
     FindconsultantComponent,
@@ -54,7 +53,8 @@ import { AdminUserService } from './services/admin-user.service';
     JobsComponent,
     NewsComponent,
     AboutComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    UsersComponent
     // UniqueUsernameDirective
   ],
   imports: [

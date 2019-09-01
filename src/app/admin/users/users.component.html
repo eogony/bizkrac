@@ -1,0 +1,35 @@
+<div class="container">
+        <div class="card card-outline-secondary">
+                <div class="card-header">
+                    <h3 class="mb-0">Manage Users</h3>
+                    <div class="card-body">
+                            <p>
+                                    <a routerLink="/admin/admin-users" class="btn btn-primary">New User</a>
+                                </p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Is Admin</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let u of user$ | async">
+                                            <td>{{ u.firstname }} {{ u.lastname }}</td>
+                                            <td>{{ u.email }}</td>
+                                            <td>{{ u.phone }}</td>
+                                            <td>{{ u.isAdmin }}</td>
+                                            <td>
+                                                <a [routerLink]="['/admin/users/', u.$key]">Edit</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                    </div>
+                </div>
+        </div>
+</div>
