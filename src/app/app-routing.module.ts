@@ -23,9 +23,11 @@ const routes: Routes = [
   { path: 'jobs', component: JobsComponent },
   { path: 'news', component: NewsComponent },
   { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'change-password/reset-password', component: ResetPasswordComponent },
+
   { path: 'admin/users/new', component: NewComponent, canActivate: [AuthGuardService] },
-  { path: 'admin/users', component: UsersComponent, canActivate: [AuthGuardService] },
-  { path: 'change-password/reset-password', component: ResetPasswordComponent }
+  { path: 'admin/users/:id', component: NewComponent, canActivate: [AuthGuardService] },
+  { path: 'admin/users', component: UsersComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({
