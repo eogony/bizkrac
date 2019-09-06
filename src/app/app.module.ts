@@ -35,7 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
 import { MyMaterialModule } from './material';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { ProfileComponent } from './profile/profile.component';
 // import { UniqueUsernameDirective } from './register/unique-username.directive';
 
 
@@ -56,7 +56,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     NewsComponent,
     AboutComponent,
     ResetPasswordComponent,
-    UpdateProfileComponent
+    ProfileComponent
     // UniqueUsernameDirective
   ],
   imports: [
