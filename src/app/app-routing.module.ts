@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './users/login/login.component';
+import { RegisterComponent } from './users/register/register.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
-import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ChangePasswordComponent } from './users/change-password/change-password.component';
+import { ResetPasswordComponent } from './users/change-password/reset-password/reset-password.component';
+import { ProfileComponent } from './users/profile/profile.component';
 
 
 const routes: Routes = [

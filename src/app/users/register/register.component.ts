@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { FormValidators } from '../common/form.validators';
+import { FormValidators } from '../../common/form.validators';
 // import { UniqueUsernameDirective } from '../register/unique-username.directive';
 // import { uniqueUsernameValidator } from '../register/unique-username.directive';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../services/data.service';
 
 
 @Component({
