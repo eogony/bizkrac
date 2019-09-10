@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -29,7 +30,6 @@ import { CategoryService } from './services/category.service';
 import { AuthService } from './services/auth.service';
 import { FormValidators } from './common/form.validators';
 import { DataService } from './services/data.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
 import { MyMaterialModule } from './material';
@@ -59,6 +59,7 @@ import { NewComponent } from './admin/users/new/new.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -69,7 +70,6 @@ import { NewComponent } from './admin/users/new/new.component';
     NgbModule,
     HttpClientModule,
     MyMaterialModule,
-    BrowserAnimationsModule,
     FlexLayoutModule,
     MDBBootstrapModule.forRoot()
   ],

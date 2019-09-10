@@ -7,22 +7,37 @@
                                 <div class="form-group">
                                     <label for="firstname">First Name</label>
                                     <input #firstname="ngModel" [(ngModel)]="user.firstname" name="firstname" id="firstname" type="text" class="form-control" required>
+                                    <div class="alert alert-danger" *ngIf="firstname.touched && firstname.invalid">
+                                        First name is required
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="lastname">Last Name</label>
                                     <input #lastname="ngModel" [(ngModel)]="user.lastname" name="lastname" id="lastname" type="text" class="form-control" required>
+                                    <div class="alert alert-danger" *ngIf="lastname.touched && lastname.invalid">
+                                        Last name is required
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="username">Username</label>
                                     <input #username="ngModel" [(ngModel)]="user.username" name="username" id="username" type="text" class="form-control" required>
+                                    <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+                                        Username is required
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input #email="ngModel" [(ngModel)]="user.email" name="email" type="email" id="email" class="form-control" required>
+                                    <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                                        Email is required
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
                                     <input #phone="ngModel" [(ngModel)]="user.phone" name="phone" id="phone" type="text" class="form-control" required>
+                                    <div class="alert alert-danger" *ngIf="phone.touched && phone.invalid">
+                                        Phone is required
+                                    </div>
                                 </div>
                                 <!--<div class="form-group">
                                     <label for="price">Price</label>
@@ -38,10 +53,16 @@
                                         <option value="1">Yes</option>
                                         <option value="2">No</option>
                                     </select>
+                                    <div class="alert alert-danger" *ngIf="isAdmin.touched && isAdmin.invalid">
+                                        Is Admin is required
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="imageUrl">Image URL</label>
                                     <input #imageUrl="ngModel" [(ngModel)]="user.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control">
+                                    <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+                                        Image URL is required
+                                    </div>
                                 </div>
                                 <button class="btn btn-primary float-right">Save</button>
                                 <button type="button" (click)="delete()" class="btn btn-danger float-right">Delete</button>

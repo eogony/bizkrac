@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +14,13 @@ export class AdminUserService {
   create(user) {
     return this.db.list('/users').push(user);
   }
-  getAll() {
-    return this.db.list('/users').snapshotChanges();
+  getAll(): Observable<any[]> {
+    return this.db.list('/users').snapshotChanges()
+      .pipe(
+        map(actions =>
+          actions.map(user => ({ id: user.key, ...user.payload.val() }))
+          )
+      );
   }
 
   // get the user from firebase given the id
