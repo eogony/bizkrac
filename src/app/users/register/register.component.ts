@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormValidators } from '../../common/form.validators';
-// import { UniqueUsernameDirective } from '../register/unique-username.directive';
-// import { uniqueUsernameValidator } from '../register/unique-username.directive';
 import { DataService } from '../../services/data.service';
 
 
@@ -14,7 +12,7 @@ import { DataService } from '../../services/data.service';
 export class RegisterComponent {
   messageForm: FormGroup;
   submitted = false;
-  // success = false;
+  success = false;
 
   constructor(private formBuilder: FormBuilder, private dataservice: DataService) {
     this.messageForm = this.formBuilder.group({
@@ -59,7 +57,7 @@ export class RegisterComponent {
     if (this.messageForm.invalid) {
       return;
     } else {
-      // this.success = true;
+      this.success = true;
       alert('The form was submitted');
       this.messageForm.reset();
       }

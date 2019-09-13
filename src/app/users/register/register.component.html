@@ -69,7 +69,7 @@
                         </div>
                         <div *ngIf="password.errors">
                           <div *ngIf="password.hasError('pattern')" class="alert alert-danger">
-                            The password should match pattern
+                            Ensure the password has at least 6 characters, with atleast one Capital letter,numbers and special characters
                           </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input formControlName="agree_term" type="checkbox" name="agree_term" id="agree_term" class="agree_term"/>
+                        <input formControlName="agree_term" type="checkbox" name="agree_term" id="agree_term" class="agree_term" value=""/>
                         <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all statements in  <a href="#" class="term-service">Terms of service</a></label>
                         <div class="invalidfeedback" *ngIf="submitted && agree_term.errors">
                           <div *ngIf="agree_term.invalid">
