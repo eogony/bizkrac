@@ -37,6 +37,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AdminUserService } from './services/admin-user.service';
 import { UsersComponent } from './admin/users/users.component';
 import { NewComponent } from './admin/users/new/new.component';
+import { ExpertCategoryComponent } from './admin/expert-category/expert-category.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { NewComponent } from './admin/users/new/new.component';
     AboutComponent,
     ResetPasswordComponent,
     UsersComponent,
-    NewComponent
+    NewComponent,
+    ExpertCategoryComponent
     // UniqueUsernameDirective
   ],
   imports: [

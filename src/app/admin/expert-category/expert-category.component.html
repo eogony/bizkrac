@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card card-outline-secondary">
+            <div class="card-header">
+                    <h3 class="mb-0">Manage Expert Categories</h3>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <ul class="list-group">
+                                    <li *ngFor="let c of (category$ | async)" [value]="c.$key" class="list-group-item">
+                                        {{ c.key }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    </div>
+</div>
+

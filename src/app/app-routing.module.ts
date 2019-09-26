@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ResetPasswordComponent } from './change-password/reset-password/reset-password.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ExpertCategoryComponent } from './admin/expert-category/expert-category.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'change-password/reset-password', component: ResetPasswordComponent },
 
+  { path: 'admin/expert-category', component: ExpertCategoryComponent, canActivate: [AuthGuardService] },
   { path: 'admin/users/new', component: NewComponent, canActivate: [AuthGuardService] },
   { path: 'admin/users/:id', component: NewComponent, canActivate: [AuthGuardService] },
   { path: 'admin/users', component: UsersComponent, canActivate: [AuthGuardService] }
