@@ -1,53 +1,29 @@
- <!-- Material form login -->
- <div class="form-wraper">
-    <div class="form-container card">
-      <div class="form-header">
-            <h2 class="form-title">Login</h2>
-        <img src="./../../assets/car-key.svg"  class="main-lock-icon" alt="">
-      </div>
+<!-- Material form login -->
+<div class="container">
+   <div class="form-wraper">
+     <ngx-auth-firebaseui
+            [providers]="[providers.Google, providers.Facebook, providers.Twitter]"
+            [guestEnabled]="false"
+            privacyPolicyUrl="/legal/privacy"
+            tosUrl="/legal/tos"
+            (onSuccess)="saveUser($event)"
+            (onError)="handleError($event)"
+            [messageOnAuthSuccess]="message"
+            [messageOnAuthError]="errorMessage"
+            goBackURL="/"
 
-      <div class="form-body">
+             [min]="6"
+             [max]="60"
+             [enableLengthRule]="true"
+             [enableLowerCaseLetterRule]="false"
+             [enableUpperCaseLetterRule]="false"
+             [enableDigitRule]="false"
+             [enableSpecialCharRule]="false"
+             (onStrengthChanged)="onStrengthChanged($event)"
+            >
+            </ngx-auth-firebaseui>
+          
+   </div>
+</div>
 
-          <!-- Username -->
-          <p>
-              <mat-form-field class="justifier">
-                <input matInput type="text" placeholder="Username" name="username" id="username" class="form-input" autocomplete="off">
-              </mat-form-field>
-          </p>
-
-          <!-- Password -->
-          <p>
-                <mat-form-field class="justifier">
-                    <input matInput placeholder="Password" text="password" class="form-input" autocomplete="off">
-                </mat-form-field>
-          </p>
-      </div>
-
-      <div class="d-flex justify-content-around">
-        <div>
-            <!-- Remember me -->
-            <mat-checkbox>Remember me</mat-checkbox>
-        </div>
-        <div class="changepassword-link">
-            <!-- Forgot password -->
-              <a routerLink="/change-password/reset-password" class="forgot-password">Forgot password?</a>
-        </div>
-     </div>
-
-      <div class="form-footer">
-          <button mat-raised-button class="btn custom-btn">
-            Login
-          </button>
-          <!--<div class="txt">
-            OR
-          </div>
-          <button mat-raised-button class="btn">
-            <img src="./../../assets/search.svg" alt="" class="google-icon"> Login With Google
-          </button>-->
-      </div>
-      <div class="additional-link">
-        No Account ? <a routerLink="/register" class="createaccount-link">Create one here</a>
-      </div>
-    </div>
-  </div>
- <!-- Material form login -->
+<!-- Material form login -->

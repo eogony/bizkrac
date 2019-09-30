@@ -2,18 +2,19 @@
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
 // @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js');
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 
     body, html{
         height: 100%;
         // margin: 0;
     }
-    
+
     body {
         font-family: 'Montserrat';
-        font-size: 18px; 
-        padding-top: 80px; 
-    }    
+        font-size: 18px;
+        padding-top: 80px;
+    }
 
     section {
         width: 100%;

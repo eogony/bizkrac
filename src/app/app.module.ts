@@ -9,6 +9,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -19,11 +20,9 @@ import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './home/nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from './home/footer/footer.component';
-import { ChangePasswordComponent } from './users/change-password/change-password.component';
 import { LoginComponent } from './users/login/login.component';
 import { FindconsultantComponent } from './findconsultant/findconsultant.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
-import { RegisterComponent } from './users/register/register.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
@@ -33,7 +32,6 @@ import { FormValidators } from './common/form.validators';
 import { DataService } from './services/data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { ResetPasswordComponent } from './users/change-password/reset-password/reset-password.component';
 import { MyMaterialModule } from './material';
 import { ProfileComponent } from './users/profile/profile.component';
 // import { UniqueUsernameDirective } from './register/unique-username.directive';
@@ -47,20 +45,18 @@ import { ProfileComponent } from './users/profile/profile.component';
     NavComponent,
     FooterComponent,
     AdminComponent,
-    ChangePasswordComponent,
     LoginComponent,
     FindconsultantComponent,
     AdminUsersComponent,
-    RegisterComponent,
     JobsComponent,
     NewsComponent,
     AboutComponent,
-    ResetPasswordComponent,
     ProfileComponent
     // UniqueUsernameDirective
   ],
   imports: [
     BrowserModule,
+    NgxAuthFirebaseUIModule.forRoot(environment.firebase),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
