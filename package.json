@@ -8,6 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod",
+    "postinstall": "ng build --output-path dist",
     "deploy:gh": "ng build --prod --base-href='https://eogony.github.io/bikrac/' && ngh --dir dist/bizkrac"
   },
   "private": true,
