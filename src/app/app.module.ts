@@ -20,12 +20,12 @@ import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './home/nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from './home/footer/footer.component';
-import { LoginComponent } from './users/login/login.component';
 import { FindconsultantComponent } from './findconsultant/findconsultant.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
+import { AccountsComponent } from './users/accounts/accounts.component';
 import { CategoryService } from './services/category.service';
 import { AuthService } from './services/auth.service';
 import { FormValidators } from './common/form.validators';
@@ -42,10 +42,10 @@ import { ProfileComponent } from './users/profile/profile.component';
     AppComponent,
     HomeComponent,
     ContactComponent,
+    AccountsComponent,
     NavComponent,
     FooterComponent,
     AdminComponent,
-    LoginComponent,
     FindconsultantComponent,
     AdminUsersComponent,
     JobsComponent,

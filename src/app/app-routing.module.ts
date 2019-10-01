@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
-import { LoginComponent } from './users/login/login.component';
+import { AccountsComponent } from './users/accounts/accounts.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { NewsComponent } from './news/news.component';
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: AccountsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'news', component: NewsComponent },

@@ -46,9 +46,10 @@
               <a class="nav-link" routerLink="/login" mdbWavesEffect href="#">Login</a>
             </li>
           </ng-template>
-          <li *ngIf="auth.user$ | async as user; else anonymousUser" class="nav-item avatar dropdown" dropdown>
-            
-          </li>
+          <div class="nav-item my-account" *ngIf="auth.authState | async as user; else anonymousUser"  dropdown>
+            <!-- auth.authState| async as user; then authenticated else none -->
+            <ngx-auth-firebaseui-avatar [links]="links"> </ngx-auth-firebaseui-avatar>
+         </div>
         </ul>
       </links>
 

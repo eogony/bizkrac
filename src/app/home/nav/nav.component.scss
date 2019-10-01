@@ -3,6 +3,7 @@
 .bg-light {
   background-image: repeating-linear-gradient(315deg, #06bcfb 0%, #4884ee 56.3%);
   height: 12%;
+  z-index: 1;
 }
 
 .navbar-brand {
@@ -11,6 +12,14 @@
   padding: 1em;
   text-transform: uppercase;
   font-size: 2em;}
+.my-account{
+  position:absolute;
+  margin: auto;
+  z-index: 2;
+  top:auto;
+  bottom: 30%;
+}
+
 
 .dropdown{
   background-image: repeating-linear-gradient(315deg, #06bcfb 0%, #4884ee 56.3%);

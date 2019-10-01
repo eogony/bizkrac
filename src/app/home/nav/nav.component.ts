@@ -12,11 +12,8 @@ import {LinkMenuItem} from 'ngx-auth-firebaseui';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  constructor(public auth: AuthService) {  }
+  constructor(public auth: AngularFireAuth) {  }
 
-  logout() {
-    this.auth.logout();
-  }
   links: LinkMenuItem[];
   ngOnInit(): void {
      this.links = [
@@ -27,7 +24,7 @@ export class NavComponent implements OnInit {
    }
 
    printLog() {
-     console.log('this is a log :D');
+     console.log(`this is a log $auth.user`);
    }
 
 
