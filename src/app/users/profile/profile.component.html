@@ -1,3 +1,4 @@
+<div class="container">
 <div class="row">
   <div class="col-md-4">
     <div class="card card-user">
@@ -6,21 +7,42 @@
       </div> -->
       <div class="card-body">
         <div class="author center">
-          <a href="#">
-            <img class="avatar border-gray" src="../../assets/image/default-avatar.png" alt="...">
+          <a href="/profile">
+            <div *ngIf="user.photoURL ; then userPhoto else noUserPhoto"></div>
+              <ng-template #userPhoto>
+               <img class="avatar border-gray" src={{user.photoURL}} alt="...">
+              </ng-template>
+              <ng-template #noUserPhoto>
+               <img class="avatar border-gray" src="../../assets/image/default-avatar.png" alt="...">
+              </ng-template>
             <h5 class="title">{{user.displayName}}</h5>
           </a>
-          <p class="description">
-            @eogony
+          <div *ngIf="user.emailVerified; then emailVerified else emailNotVerified"></div>
+            <ng-template #emailVerified>
+              <mat-icon color="primary"
+                        matTooltip="email is verified"
+                        matTooltipPosition="after">
+                verified_user
+              </mat-icon>
+            </ng-template>
+            <ng-template #emailNotVerified>
+              <mat-icon color="warn"
+                        matTooltip="email is not verified"
+                        matTooltipPosition="after">
+                warning
+              </mat-icon>
+            </ng-template>
+          <p class="description center">
+            {{user.email}}
           </p>
         </div>
         <p class="description text-center">
-          No categories yet.
+          <!-- No categories yet.
         <button type="" name="button" class= "primary">
           Add categories
         </button>
           <br> No diggity
-          <br> I wanna bag it up"
+          <br> I wanna bag it up" -->
         </p>
       </div>
       <div class="card-footer">
@@ -30,7 +52,7 @@
             <div class="col-lg-3 col-md-6 col-6 ml-auto">
               <h5>12
                 <br>
-                <small>Views</small>
+                <small>Profile Views</small>
               </h5>
             </div>
             <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
@@ -49,72 +71,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="card">
-      <div class="card-header">
-        <h4 class="card-title">Categories</h4>
-      </div>
-      <div class="card-body">
-        <ul class="list-unstyled team-members">
-          <li>
-            <div class="row">
-              <div class="col-md-2 col-2">
-                <div class="avatar">
-                  <img src="assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                </div>
-              </div>
-              <div class="col-md-7 col-7">
-                DJ Khaled
-                <br />
-                <span class="text-muted">
-                  <small>Offline</small>
-                </span>
-              </div>
-              <div class="col-md-3 col-3 text-right">
-                <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="row">
-              <div class="col-md-2 col-2">
-                <div class="avatar">
-                  <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                </div>
-              </div>
-              <div class="col-md-7 col-7">
-                Creative Tim
-                <br />
-                <span class="text-success">
-                  <small>Available</small>
-                </span>
-              </div>
-              <div class="col-md-3 col-3 text-right">
-                <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="row">
-              <div class="col-md-2 col-2">
-                <div class="avatar">
-                  <img src="assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                </div>
-              </div>
-              <div class="col-ms-7 col-7">
-                Flume
-                <br />
-                <span class="text-danger">
-                  <small>Busy</small>
-                </span>
-              </div>
-              <div class="col-md-3 col-3 text-right">
-                <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div> -->
+
   </div>
   <div class="col-md-8">
     <div class="card card-user">
@@ -122,46 +79,42 @@
         <h5 class="card-title">Edit Profile</h5>
       </div>
       <div class="card-body">
+        <div class="card-header">
+          <h5 class="card-title">Personal Information</h5>
+        </div>
         <form>
           <div class="row">
             <div class="col-md-3 pr-1">
               <div class="form-group">
                 <label>Company</label>
-                <input type="text" class="form-control"  placeholder="Company" value="Bizkrac Inc.">
+                <input name= "company" type="text" class="form-control"  placeholder="Your Company" value="">
               </div>
             </div>
             <div class="col-md-3 px-1">
               <div class="form-group">
                 <label>Username</label>
-                <input type="text" class="form-control" placeholder="Username" value="eogony">
+                <input name="username" type="text" class="form-control" placeholder="Username" value={{user.displayName}}>
               </div>
             </div>
-            <div class="col-md-3 pl-1">
+            <div class="col-md-3 pl-2">
               <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" placeholder="Email">
+                <input name="email" type="email" class="form-control" placeholder="Email" value = {{user.email}}>
               </div>
             </div>
           </div>
+
           <div class="row">
-            <div class="col-md-3 pr-1">
-              <div class="form-group">
-                <label>First Name</label>
-                <input type="text" class="form-control" placeholder="Company" value="Liz">
-              </div>
-            </div>
-            <div class="col-md-3 pl-1">
-              <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Last Name" value="Eogony">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 pl-2">
               <div class="form-group">
                 <label>Address</label>
-                <input type="text" class="form-control" placeholder="Home Address" value="Nairobi, Kenya">
+                <input name="address" type="text" class="form-control" placeholder="Home Address" value="">
+              </div>
+            </div>
+            <div class="col-md-3 pl-2">
+              <div class="form-group">
+                <label>Postal Code</label>
+                <input name="postal" type="text" class="form-control" placeholder="ie 1234-5678..">
               </div>
             </div>
           </div>
@@ -169,19 +122,13 @@
             <div class="col-md-3 pr-1">
               <div class="form-group">
                 <label>City</label>
-                <input type="text" class="form-control" placeholder="City" value="Nairobi">
+                <input name="city" type="text" class="form-control" placeholder="Enter your City" value="">
               </div>
             </div>
             <div class="col-md-3 px-1">
               <div class="form-group">
                 <label>Country</label>
-                <input type="text" class="form-control" placeholder="Country" value="Kenya">
-              </div>
-            </div>
-            <div class="col-md-3 pl-1">
-              <div class="form-group">
-                <label>Postal Code</label>
-                <input type="number" class="form-control" placeholder="Box">
+                <input name="country" type="text" class="form-control" placeholder="Enter your Country" value="">
               </div>
             </div>
           </div>
@@ -189,7 +136,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>About Me</label>
-                <textarea class="form-control textarea">Altruistic ,focused and dtermined Database Administrator</textarea>
+                <textarea name="about" class="form-control textarea" placeholder="Your short description and work here!"></textarea>
               </div>
             </div>
           </div>
@@ -199,7 +146,61 @@
             </div>
           </div>
         </form>
+        <div class="card-header">
+          <h5 class="card-title">Professional Details</h5>
+          Add your professional details here. Check all that applies
+        </div>
+        <form name="professional">
+        <div class="proffessions">
+        <article>
+            <details>
+              <summary>Accounting and Finance</summary>
+              <ul>
+              <li *ngFor="let account of accounting">
+                 <input type="checkbox"  name="accounting" value={{account}}> {{account}}
+               </li>
+              </ul>
+            </details>
+          </article>
+          <article>
+              <details>
+                <summary>Taxation</summary>
+                <ul>
+                <li *ngFor="let tax of Taxation">
+                   <input type="checkbox"  name="taxation" value={{tax}}> {{tax}}
+                 </li>
+                </ul>
+              </details>
+            </article>
+            <article>
+                <details>
+                  <summary>Assurance/Audit</summary>
+                  <ul>
+                  <li *ngFor="let audit of audits">
+                     <input type="checkbox"  name="audit" value={{audit}}> {{audit}}
+                   </li>
+                  </ul>
+                </details>
+              </article>
+              <article>
+                  <details>
+                    <summary>Risk Management</summary>
+                    <ul>
+                    <li *ngFor="let risk of risks">
+                       <input type="checkbox"  name="risk" value={{risk}}> {{risk}}
+                     </li>
+                    </ul>
+                  </details>
+                </article>
+                </div>
+                <div class="row">
+                  <div class="update ml-auto mr-auto">
+                    <button type="submit" class="btn btn-primary btn-round">Update Proffessions</button>
+                  </div>
+                  </div>
+          </form>
       </div>
     </div>
   </div>
+</div>
 </div>
